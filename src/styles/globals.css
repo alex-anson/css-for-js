@@ -12,6 +12,8 @@
 
   --color-light: #dcdcdc;
   --color-mainBG: #222;
+  --color-primaryLightest: hsl(333, 40%, 82%);
+  --shadow-primaryLightest: hsla(333, 40%, 42%, 0.45);
   --color-primaryLight: hsl(333, 40%, 60%);
   --color-primary: hsl(333, 40%, 47%);
   --color-primaryDark: hsl(333, 40%, 30%);
@@ -96,8 +98,24 @@ main {
   min-height: 100%;
 }
 
+header {
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: #090909;
+}
+
 footer {
-  background-color: var(--color-light);
+  margin-top: 5rem;
+  background-color: #090909;
+}
+
+footer div {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h2,
@@ -108,6 +126,7 @@ h2 {
   margin-bottom: 24px;
 }
 
+footer p,
 header,
 h2 {
   color: var(--color-light);
@@ -116,9 +135,12 @@ h2 {
 footer p {
   font-size: 1.8rem;
 }
+footer span {
+  font-size: 1.4rem;
+}
 
 section {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 /* #endregion */

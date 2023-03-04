@@ -2,7 +2,7 @@
   background-color: var(--color-light);
   padding: 24px;
   margin: 0 -24px;
-  border-bottom: 8px solid hsl(0deg 0% 70%);
+  border-bottom: 8px solid hsl(0, 0%, 70%);
 }
 .card p {
   margin-bottom: 1.5rem;
@@ -11,11 +11,11 @@
   margin-bottom: 0;
 }
 .card h4 {
-  background-color: hsl(333, 69%, 85%);
+  background-color: var(--color-primaryLightest);
   width: fit-content;
   padding: 8px 32px;
   margin-bottom: 1.5rem;
   margin-left: -32px;
   margin-top: -16px;
-  box-shadow: 1px 1px 2px var(--color-primary);
+  box-shadow: 1px 1px 2px var(--shadow-primaryLightest);
 }

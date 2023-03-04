@@ -1,0 +1,50 @@
+.article {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fff;
+  /* damn, that's a heaavvy box shadow (necessary cuz the dark background) */
+  box-shadow: 0px 12px 18px hsla(0, 0%, 0%, 0.7);
+  /* can also be written =>    hsl(0 0% 0% / 0.7); */
+  position: relative;
+}
+
+.article .flag {
+  background: var(--color-primaryLightest);
+  box-shadow: 0px 1px 2px var(--shadow-primaryLightest);
+
+  position: absolute;
+  top: 8px;
+  left: -8px;
+  border-radius: 4px 1rem 1rem 4px;
+  padding-left: 8px;
+  padding-right: 16px;
+  font-size: 1rem;
+  line-height: 2;
+  font-weight: 600;
+}
+
+.article .productPhoto {
+  margin: -16px;
+  margin-bottom: 12px;
+}
+
+.article .productPhoto img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.article h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.article .subtitle {
+  font-size: 1rem;
+  color: #4d4d4d;
+  font-weight: 300;
+}

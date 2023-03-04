@@ -3,17 +3,16 @@ import Head from "next/head";
 import { Manrope } from "next/font/google";
 
 // Local
+import styles from "@/styles/Home.module.css";
+import { blockOne } from "@/utils/lorem.js";
+
 import { HorizontalLine } from "@/atoms/HorizontalLine";
 import { MaxWidthWrapperSection } from "@/components/MaxWidthWrapperSection";
 import { Petals } from "@/atoms/Petals";
 import { CardVersion1 } from "@/components/CardVersion1";
 import { CenterAbsolutePositioning } from "@/components/CenterAbsolutePositioning";
 import { BubbleBorder } from "@/components/BubbleBorder";
-
-// Styles
-import styles from "@/styles/Home.module.css";
-
-import { blockOne } from "@/utils/lorem.js";
+import { WatchEcommerce } from "@/components/WatchEcommerce";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -27,16 +26,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={manrope.className}>
-        <header className={styles.header}>
-          <h1 className={styles.header_h1}>&nbsp;Fun with CSS 🔮</h1>
+        <header>
+          <div className={styles.headerDiv}>
+            <h1 className={styles.header_h1}>&nbsp;Fun with CSS 🔮</h1>
+          </div>
+          <HorizontalLine />
         </header>
-        <HorizontalLine />
         <MaxWidthWrapperSection />
         <Petals petalSize={80} />
         <CardVersion1 />
         <CenterAbsolutePositioning />
         <BubbleBorder>{{ content: blockOne }}</BubbleBorder>
+        <WatchEcommerce />
       </main>
+      <footer>
+        <HorizontalLine />
+        <div>
+          <span>🔥</span>
+          <p>alex&#39;s playground</p>
+        </div>
+      </footer>
     </>
   );
 }
