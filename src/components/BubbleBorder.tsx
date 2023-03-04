@@ -3,7 +3,7 @@ import mww from "@/css-utils/maxWidthWrapper.module.css";
 
 interface Props {
   children?: {
-    content: React.ReactNode;
+    content: string;
   };
 }
 
