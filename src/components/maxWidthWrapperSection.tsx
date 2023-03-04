@@ -1,10 +1,11 @@
 import styles from "@/components/maxWidthWrapperSection.module.css";
+import mww from "@/css-utils/max-width-wrapper.module.css";
 
 export function MaxWidthWrapperSection() {
   return (
     <section>
       <h2>max-width-wrapper</h2>
-      <div className={styles.maxWidthWrapper}>
+      <div className={mww.maxWidthWrapper}>
         <div className={styles.maxWidthContent}>
           <h4>Fulfills these constraints:</h4>
           <ul>
