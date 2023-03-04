@@ -11,7 +11,11 @@
   );
 
   --color-light: #dcdcdc;
+  --color-mainBG: #222;
+  --color-primaryLight: hsl(333, 40%, 60%);
   --color-primary: hsl(333, 40%, 47%);
+  --color-primaryDark: hsl(333, 40%, 30%);
+  --color-primaryDarkest: hsl(333, 40%, 20%);
 }
 
 /* #region SECTION: Global reset */
@@ -75,7 +79,7 @@ h6 {
 body,
 html {
   font-family: "Manrope", "Poppins", sans-serif;
-  background-color: #222;
+  background-color: var(--color-mainBG);
 }
 
 /*
