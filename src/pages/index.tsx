@@ -11,6 +11,7 @@ import styles from "@/styles/Home.module.css";
 import { Petals } from "@/atoms/Petals";
 import { CardVersion1 } from "@/components/CardVersion1";
 import { CenterAbsolutePositioning } from "@/components/CenterAbsolutePositioning";
+import { BubbleBorder } from "@/components/BubbleBorder";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default function Home() {
         <Petals petalSize={80} />
         <CardVersion1 />
         <CenterAbsolutePositioning />
+        <BubbleBorder />
       </main>
     </>
   );
