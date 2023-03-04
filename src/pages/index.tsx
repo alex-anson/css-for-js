@@ -1,8 +1,14 @@
+// Libs
 import Head from "next/head";
 import { Manrope } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+
+// Local
 import { HorizontalLine } from "@/atoms/HorizontalLine";
-import { MaxWidthWrapperSection } from "@/components/maxWidthWrapperSection";
+import { MaxWidthWrapperSection } from "@/components/MaxWidthWrapperSection";
+
+// Styles
+import styles from "@/styles/Home.module.css";
+import { Petals } from "@/atoms/Petals";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -21,6 +27,7 @@ export default function Home() {
         </header>
         <HorizontalLine />
         <MaxWidthWrapperSection />
+        <Petals petalSize={80} />
       </main>
     </>
   );
