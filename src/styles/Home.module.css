@@ -36,8 +36,8 @@
   border-radius: var(--border-radius);
   background: linear-gradient(
     to bottom right,
-    hsl(310, 50%, 25%),
-    hsl(310, 56%, 11%),
+    var(--color-pink),
+    hsl(333, 56%, 11%),
     hsl(310, 56%, 11%)
   );
   background-clip: content-box;
