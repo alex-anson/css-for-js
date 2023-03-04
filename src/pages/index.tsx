@@ -25,7 +25,7 @@ export default function Home() {
       </Head>
       <main className={manrope.className}>
         <header className={styles.header}>
-          <h1 className={styles.header_h1}>Fun with CSS. 🔮</h1>
+          <h1 className={styles.header_h1}>&nbsp;Fun with CSS 🔮</h1>
         </header>
         <HorizontalLine />
         <MaxWidthWrapperSection />
