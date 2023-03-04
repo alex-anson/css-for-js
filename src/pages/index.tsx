@@ -9,6 +9,7 @@ import { MaxWidthWrapperSection } from "@/components/MaxWidthWrapperSection";
 // Styles
 import styles from "@/styles/Home.module.css";
 import { Petals } from "@/atoms/Petals";
+import { CardVersion1 } from "@/components/CardVersion1";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function Home() {
         <HorizontalLine />
         <MaxWidthWrapperSection />
         <Petals petalSize={80} />
+        <CardVersion1 />
       </main>
     </>
   );

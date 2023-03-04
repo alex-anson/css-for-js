@@ -1,0 +1,22 @@
+.card {
+  background-color: #dcdcdc;
+  padding: 24px;
+  margin: 0 -24px;
+  border-bottom: 8px solid hsl(0deg 0% 70%);
+}
+.card p {
+  margin-bottom: 1.5rem;
+}
+.card p:last-of-type {
+  margin-bottom: 0;
+}
+.card h4 {
+  /* background-color: hsl(328, 88%, 84%); */
+  background-color: hsl(333, 88%, 84%);
+  width: fit-content;
+  padding: 8px 32px;
+  margin-bottom: 1.5rem;
+  margin-left: -32px;
+  margin-top: -16px;
+  box-shadow: 1px 1px 2px hsl(333, 40%, 47%);
+}
