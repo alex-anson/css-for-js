@@ -10,6 +10,7 @@ import { MaxWidthWrapperSection } from "@/components/MaxWidthWrapperSection";
 import styles from "@/styles/Home.module.css";
 import { Petals } from "@/atoms/Petals";
 import { CardVersion1 } from "@/components/CardVersion1";
+import { CenterAbsolutePositioning } from "@/components/CenterAbsolutePositioning";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function Home() {
         <MaxWidthWrapperSection />
         <Petals petalSize={80} />
         <CardVersion1 />
+        <CenterAbsolutePositioning />
       </main>
     </>
   );

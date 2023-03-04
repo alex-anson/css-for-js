@@ -11,7 +11,7 @@
   );
 
   --color-light: #dcdcdc;
-  --color-pink: hsl(333, 40%, 47%);
+  --color-primary: hsl(333, 40%, 47%);
 }
 
 /* #region SECTION: Global reset */

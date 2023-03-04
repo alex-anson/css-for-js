@@ -4,7 +4,7 @@ import mww from "@/css-utils/maxWidthWrapper.module.css";
 export function MaxWidthWrapperSection() {
   return (
     <section>
-      <h2>max-width-wrapper</h2>
+      <h2>max width wrapper</h2>
       <div className={mww.maxWidthWrapper}>
         <div className={styles.maxWidthContent}>
           <h4>Fulfills these constraints:</h4>
