@@ -18,7 +18,9 @@ export function BubbleBorder(props: Props): JSX.Element {
           <div className={`${styles.circle} ${styles.small}`}></div>
 
           {props.children?.content && (
-            <p className={styles.content}>{props.children.content}</p>
+            <div className={styles.wrapContent}>
+              <p>{props.children.content}</p>
+            </div>
           )}
         </div>
       </div>
