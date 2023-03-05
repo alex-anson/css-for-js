@@ -1,5 +1,5 @@
 import styles from "@/components/BubbleBorder.module.css";
-import mww from "@/css-utils/maxWidthWrapper.module.css";
+import mww from "@/css-utils/MaxWidthWrapper.module.css";
 
 interface Props {
   children?: {

@@ -1,5 +1,5 @@
-import styles from "@/components/maxWidthWrapperSection.module.css";
-import mww from "@/css-utils/maxWidthWrapper.module.css";
+import styles from "@/components/MaxWidthWrapperSection.module.css";
+import mww from "@/css-utils/MaxWidthWrapper.module.css";
 
 export function MaxWidthWrapperSection() {
   return (

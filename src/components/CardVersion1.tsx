@@ -1,5 +1,5 @@
 import styles from "@/components/CardVersion1.module.css";
-import mww from "@/css-utils/maxWidthWrapper.module.css";
+import mww from "@/css-utils/MaxWidthWrapper.module.css";
 
 export function CardVersion1(): JSX.Element {
   return (

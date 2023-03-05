@@ -1,4 +1,4 @@
-import styles from "@/components/centerAbsolutePositioning.module.css";
+import styles from "@/components/CenterAbsolutePositioning.module.css";
 
 export function CenterAbsolutePositioning(): JSX.Element {
   return (
