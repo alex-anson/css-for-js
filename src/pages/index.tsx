@@ -13,7 +13,7 @@ import { CardVersion1 } from "@/components/CardVersion1";
 import { CenterAbsolutePositioning } from "@/components/CenterAbsolutePositioning";
 import { BubbleBorder } from "@/components/BubbleBorder";
 import { WatchEcommerce } from "@/components/WatchEcommerce";
-import { TriangleBorder } from "@/components/TriangleBorder";
+import { TriangleBorder, TriangleLoremJSX } from "@/components/TriangleBorder";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -38,8 +38,8 @@ export default function Home() {
         <CardVersion1 />
         <CenterAbsolutePositioning />
         <BubbleBorder>{{ content: blockOne }}</BubbleBorder>
+        <TriangleBorder>{{ content: <TriangleLoremJSX /> }}</TriangleBorder>
         <WatchEcommerce />
-        <TriangleBorder />
       </main>
       <footer>
         <HorizontalLine />
