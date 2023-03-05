@@ -10,7 +10,7 @@ interface Props {
 export function TriangleBorder(props: Props): JSX.Element {
   return (
     <section>
-      <h2 style={{ marginTop: "20px", marginBottom: "50px" }}>
+      <h2 style={{ marginTop: "20px", marginBottom: "30px" }}>
         triangle border
       </h2>
       <div className={mww.maxWidthWrapper}>

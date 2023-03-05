@@ -3,10 +3,8 @@
 
   min-height: 250px;
   height: fit-content;
-  border: 2px solid var(--color-primary);
+  border: 3.5px solid var(--color-primary);
 
-  /* felt too close to the block above it, probably because of the big bubble */
-  /* margin-top: 2rem; */
   /* so the triangles don't run off the screen on mobile */
   margin-left: 30px;
   margin-right: 30px;
@@ -28,28 +26,32 @@
   /* background-color: #ffffff55; */
   height: 100%;
   width: 100%;
-  clip-path: polygon(50% 8%, 10% 45%, 90% 45%);
+  clip-path: polygon(50% 10%, 16% 43%, 84% 43%);
   z-index: 2;
 }
 
 .one {
-  top: -20px;
-  left: -20px;
+  top: -15px;
+  left: -15px;
+  transform: rotate(315deg);
 }
 
 .two {
-  top: -20px;
-  right: -20px;
+  top: -15px;
+  right: -15px;
+  transform: rotate(45deg);
 }
 
 .three {
-  bottom: -20px;
-  left: -20px;
+  bottom: -15px;
+  left: -15px;
+  transform: rotate(225deg);
 }
 
 .four {
-  bottom: -20px;
-  right: -20px;
+  bottom: -15px;
+  right: -15px;
+  transform: rotate(135deg);
 }
 
 .wrapContent {
