@@ -14,6 +14,7 @@ import { CenterAbsolutePositioning } from "@/components/CenterAbsolutePositionin
 import { BubbleBorder } from "@/components/BubbleBorder";
 import { WatchEcommerce } from "@/components/WatchEcommerce";
 import { TriangleBorder, TriangleLoremJSX } from "@/components/TriangleBorder";
+import { RectangleBorder } from "@/components/RectangleBorder";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -39,6 +40,7 @@ export default function Home() {
         <CenterAbsolutePositioning />
         <BubbleBorder>{{ content: blockOne }}</BubbleBorder>
         <TriangleBorder>{{ content: <TriangleLoremJSX /> }}</TriangleBorder>
+        <RectangleBorder />
         <WatchEcommerce />
       </main>
       <footer>
