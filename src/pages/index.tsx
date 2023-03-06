@@ -16,6 +16,7 @@ import { WatchEcommerce } from "@/components/WatchEcommerce";
 import { TriangleBorder, TriangleLoremJSX } from "@/components/TriangleBorder";
 import { RectangleBorder } from "@/components/RectangleBorder";
 import { DecorativeBlobs } from "@/components/DecorativeBlobs";
+import { SynergisticIncExample } from "@/components/SynergisticIncExample";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -44,6 +45,7 @@ export default function Home() {
         <RectangleBorder />
         <WatchEcommerce />
         <DecorativeBlobs />
+        <SynergisticIncExample />
       </main>
       <footer>
         <HorizontalLine />
