@@ -18,7 +18,7 @@
   padding: 16px 32px;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0px 2px 16px hsl(260, 50%, 20%, 0.7);
+  box-shadow: 0px 2px 16px hsla(260, 50%, 20%, 0.7);
 }
 
 .primary.card {
@@ -45,9 +45,53 @@
 .card ul {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  list-style: circle;
+  padding-inline-start: 36px;
 }
 
 .card button {
   width: 100%;
   height: 3rem;
+}
+
+.primary.card button {
+  background-color: var(--color-primaryLightest);
+  box-shadow: 0 1px 2px #666;
+  border: 1px solid var(--color-mainBG);
+  border-radius: 2px;
+}
+
+.primary.card button:hover {
+  /* --color-primaryLight + opacity */
+  background-color: hsla(333, 40%, 60%, 0.6);
+}
+
+/* Tablet-ish and smaller */
+@media screen and (max-width: 767px) {
+  .pricing {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .primary.card h3,
+  .primary.card p,
+  .primary.card ul,
+  .primary.card button {
+    font-size: 1.2rem;
+  }
+
+  .primary.card {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card {
+    padding: 16px;
+  }
+  .card ul {
+    padding-inline-start: 30px;
+  }
 }
