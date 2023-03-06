@@ -15,6 +15,7 @@ import { BubbleBorder } from "@/components/BubbleBorder";
 import { WatchEcommerce } from "@/components/WatchEcommerce";
 import { TriangleBorder, TriangleLoremJSX } from "@/components/TriangleBorder";
 import { RectangleBorder } from "@/components/RectangleBorder";
+import { DecorativeBlobs } from "@/components/DecorativeBlobs";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -42,6 +43,7 @@ export default function Home() {
         <TriangleBorder>{{ content: <TriangleLoremJSX /> }}</TriangleBorder>
         <RectangleBorder />
         <WatchEcommerce />
+        <DecorativeBlobs />
       </main>
       <footer>
         <HorizontalLine />
