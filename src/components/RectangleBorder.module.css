@@ -51,3 +51,13 @@
   height: 30px;
   width: 30px;
 }
+
+.contentDiv {
+  background-color: var(--color-light);
+  padding: 1.2rem 1.5rem;
+}
+
+.h2 {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}

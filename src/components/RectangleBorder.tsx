@@ -4,9 +4,7 @@ import mww from "@/css-utils/MaxWidthWrapper.module.css";
 export function RectangleBorder(): JSX.Element {
   return (
     <section>
-      <h2 style={{ marginTop: "20px", marginBottom: "30px" }}>
-        rectangle border
-      </h2>
+      <h2 className={styles.h2}>rectangle border</h2>
       <div className={mww.maxWidthWrapper}>
         <div className={styles.box}>
           <div className={`${styles.rectangle} ${styles.one}`}></div>
@@ -23,12 +21,7 @@ export function RectangleBorder(): JSX.Element {
 
 export function Content(): JSX.Element {
   return (
-    <div
-      style={{
-        backgroundColor: "var(--color-light)",
-        padding: "1.2rem 1.5rem",
-      }}
-    >
+    <div className={styles.contentDiv}>
       <p>
         Nobis, voluptates deserunt? Animi nulla tempore reiciendis delectus eos
         necessitatibus, quod ratione facilis veniam aliquam ipsam tempora ipsa
