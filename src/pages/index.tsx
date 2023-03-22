@@ -19,6 +19,7 @@ import { DecorativeBlobs } from "@/components/DecorativeBlobs";
 import { SynergisticIncExample } from "@/components/SynergisticIncExample";
 import { CardVersion2 } from "@/components/CardVersion2";
 import { CardVersion3 } from "@/components/CardVersion3";
+import { HorizontalOverflow } from "@/components/HorizontalOverflow";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -50,6 +51,7 @@ export default function Home() {
         <SynergisticIncExample />
         <CardVersion2 />
         <CardVersion3 />
+        <HorizontalOverflow />
       </main>
       <footer>
         <HorizontalLine />
