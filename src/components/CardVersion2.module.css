@@ -1,0 +1,42 @@
+.card {
+  overflow: hidden;
+  position: relative;
+  border: 2px solid;
+  border-radius: 8px;
+
+  color: var(--color-light);
+  padding: 24px;
+}
+
+.card p {
+  margin-bottom: 1.5rem;
+}
+
+.card p:last-of-type {
+  margin-bottom: 0;
+}
+
+.card h4 {
+  margin-bottom: 1rem;
+}
+
+/* Decoration */
+.flourish {
+  position: absolute;
+  border-radius: 100px;
+  width: 75px;
+  height: 75px;
+}
+
+.flourish.one {
+  background: var(--color-primaryDark);
+  border: 0.5px solid var(--color-primary);
+  right: -40px;
+  top: -20px;
+}
+
+.flourish.two {
+  background: var(--color-primary);
+  right: 0px;
+  top: -45px;
+}
