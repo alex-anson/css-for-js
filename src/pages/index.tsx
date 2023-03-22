@@ -18,6 +18,7 @@ import { RectangleBorder } from "@/components/RectangleBorder";
 import { DecorativeBlobs } from "@/components/DecorativeBlobs";
 import { SynergisticIncExample } from "@/components/SynergisticIncExample";
 import { CardVersion2 } from "@/components/CardVersion2";
+import { CardVersion3 } from "@/components/CardVersion3";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -48,6 +49,7 @@ export default function Home() {
         <DecorativeBlobs />
         <SynergisticIncExample />
         <CardVersion2 />
+        <CardVersion3 />
       </main>
       <footer>
         <HorizontalLine />
