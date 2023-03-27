@@ -20,6 +20,7 @@ import { SynergisticIncExample } from "@/components/SynergisticIncExample";
 import { CardVersion2 } from "@/components/CardVersion2";
 import { CardVersion3 } from "@/components/CardVersion3";
 import { HorizontalOverflow } from "@/components/HorizontalOverflow";
+import { StickyNav } from "@/components/StickyNav";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -52,6 +53,7 @@ export default function Home() {
         <CardVersion2 />
         <CardVersion3 />
         <HorizontalOverflow />
+        <StickyNav />
       </main>
       <footer>
         <HorizontalLine />

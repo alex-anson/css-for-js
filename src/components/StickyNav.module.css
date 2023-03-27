@@ -1,0 +1,55 @@
+.wrapperAbove {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 350px;
+
+  border: 3px solid var(--color-light);
+  background-color: var(--color-light);
+  overflow-y: scroll;
+
+  height: 180px;
+  position: relative;
+}
+
+.navWrap {
+  background-color: var(--color-primaryDark);
+  color: var(--color-light);
+  box-shadow: 1px 2px 2px var(--shadow-primaryLightest);
+  opacity: 0.96;
+
+  position: sticky;
+  /* Sauce 🍫 */
+  top: -20px;
+  padding-top: 20px;
+}
+
+.navWrap ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.navWrap li {
+  display: inline-block;
+  padding: 0;
+  margin: 0 16px;
+  line-height: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.content {
+  padding-left: 32px;
+  padding-top: 48px;
+}
+
+.endContent {
+  margin-top: 200px;
+  text-align: right;
+}
