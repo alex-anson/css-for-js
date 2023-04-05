@@ -13,12 +13,13 @@ export function VisuallyHiddenExample(): JSX.Element {
     <section>
       <h2>visually hidden</h2>
       <div className={styles.wrapper}>
-        <button>
-          <QuestionMarkCircleIcon height={32} />
+        <button className={styles.button}>
+          {/* #dcdcdc is var(--color-light) */}
+          <QuestionMarkCircleIcon height={32} color="#dcdcdc" />
           <VisuallyHidden screenReaderText="Get help" />
         </button>
-        <button>
-          <Cog8ToothIcon height={32} />
+        <button className={styles.button}>
+          <Cog8ToothIcon height={32} color="#dcdcdc" />
           <VisuallyHidden screenReaderText="Access settings" />
         </button>
       </div>

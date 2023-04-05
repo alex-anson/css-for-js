@@ -30,7 +30,7 @@ export function VisuallyHidden(props: Props): JSX.Element {
   }, []);
 
   if (forceShow) {
-    return <span>{props.screenReaderText}</span>;
+    return <span style={{ color: "inherit" }}>{props.screenReaderText}</span>;
   }
 
   return (

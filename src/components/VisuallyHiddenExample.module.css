@@ -6,3 +6,14 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.icon_color {
+  color: var(--color-primary);
+}
+
+.button {
+  background-color: var(--color-primaryDark);
+  color: var(--color-light);
+  border: 1px solid;
+  padding: 7px 12px;
+}
