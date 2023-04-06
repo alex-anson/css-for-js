@@ -1,5 +1,5 @@
 import styles from "@/components/RectangleBorder.module.css";
-import mww from "@/css-utils/MaxWidthWrapper.module.css";
+import mww from "@/css-utils/maxWidthWrapper.module.css";
 
 export function RectangleBorder(): JSX.Element {
   return (

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 // Local
 import styles from "@/components/WatchEcommerce.module.css";
-import mww from "@/css-utils/MaxWidthWrapper.module.css";
+import mww from "@/css-utils/maxWidthWrapper.module.css";
 
 // Media
 import watchImg from "../../public/watch-rachit-tank.jpg";
