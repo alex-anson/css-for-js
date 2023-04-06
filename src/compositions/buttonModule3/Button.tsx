@@ -1,8 +1,11 @@
 // Libs
 import styled from "styled-components";
+import { Roboto } from "next/font/google";
 
 // Local
 import { COLORS } from "./constants";
+
+const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
 interface Props {
   variant: "fill" | "outline" | "ghost";
@@ -28,12 +31,13 @@ export function Button(props: Props): JSX.Element {
 }
 
 /* -------------- */
-/* SECTION: STYLES */ // TODO: get roboto
+/* SECTION: STYLES */
 /* -------------- */
 const Base = styled.button<StyledComponentProps>`
   display: block;
   text-transform: uppercase;
   font-weight: 500;
+  font-family: ${roboto.style.fontFamily};
 
   font-size: ${(props) => props.size === "small" && "16px"};
   font-size: ${(props) => props.size === "medium" && "18px"};
