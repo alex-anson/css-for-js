@@ -63,6 +63,7 @@ export default function Home() {
         <StyledComponentsCodeExample />
         <Breadcrumbs
           crumbs={getBreadcrumbs()}
+          lastBreadcrumb="Sectionals"
           handleClick={(text) => console.log(`clicked ${text}`)}
         />
       </main>
@@ -80,8 +81,7 @@ export default function Home() {
 function getBreadcrumbs(): BreadcrumbType["crumbs"] {
   const crumbMap = new Map();
   crumbMap.set("Home", "#home");
-  crumbMap.set("Living Room", "#living");
-  crumbMap.set("Couches", "#living/couch");
-  crumbMap.set("Sectionals", "#living/couch/sectional");
+  crumbMap.set("Living Room", "#home/living");
+  crumbMap.set("Couches", "#home/living/couch");
   return crumbMap;
 }

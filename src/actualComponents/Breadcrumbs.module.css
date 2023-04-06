@@ -3,24 +3,46 @@
   margin-right: auto;
   padding-left: 16px;
   padding-right: 16px;
-  max-width: 500px;
+  max-width: fit-content;
 }
 
 .list {
   list-style: none;
-  font-weight: 600;
+  font-weight: 400;
   background-color: var(--shadow-primaryLightest);
-  padding: 20px 32px;
+  padding: 18px 24px;
   border-radius: 4px;
 
   display: flex;
-  gap: 1.2rem;
+  gap: 28px;
 }
 
+.item {
+  position: relative;
+  max-width: fit-content;
+}
+
+/* if markup was organized differently (i.e. like before when you were looping through _all_ of the items), could use => .item + .item::before & corresponding ::after */
+.item:not(:last-of-type)::after,
+.item:not(:last-of-type)::before {
+  position: absolute;
+  right: -10px;
+
+  display: inline-block;
+  content: "";
+  border-right: 0.15em solid var(--color-primaryLightest);
+  border-radius: 10px;
+  height: 2.2em;
+  opacity: 0.7;
+}
 .item:not(:last-of-type)::after {
-  content: "/";
-  margin-left: 0.8rem;
-  color: var(--color-primaryLightest);
+  transform: rotate(-30deg);
+  top: -20.5px;
+}
+
+.item:not(:last-of-type)::before {
+  transform: rotate(30deg);
+  bottom: -20.5px;
 }
 
 .item a {
@@ -34,11 +56,14 @@
   border-bottom-color: currentColor;
 }
 
-@media screen and (max-width: 520px) {
-  .widthWrap {
-    max-width: fit-content;
-  }
+/* i _would_ do it the way he does, with having each crumb be a separate component and passing in which one is the current page, BUT... the active/current page is always gonna be the last breadcrumb. at least, that's the assumption i'm working under. */
+.lastItem {
+  max-width: fit-content;
+  color: var(--color-light);
+  font-weight: 700;
+}
 
+@media screen and (max-width: 465px) {
   .list {
     padding: 16px 22px;
 
@@ -46,8 +71,25 @@
     gap: 1rem;
   }
 
+  .item,
+  .lastItem {
+    font-size: 1.25rem;
+  }
+
+  .item:not(:last-of-type)::after,
+  .item:not(:last-of-type)::before {
+    right: -10px;
+    height: 0.8em;
+    border-right-width: 0.1em;
+  }
+
   .item:not(:last-of-type)::after {
-    content: ">";
-    margin-left: 0.5rem;
+    transform: rotate(-38deg);
+    top: 2px;
+  }
+
+  .item:not(:last-of-type)::before {
+    transform: rotate(38deg);
+    bottom: 0;
   }
 }
