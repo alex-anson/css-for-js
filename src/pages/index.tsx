@@ -22,6 +22,7 @@ import { CardVersion3 } from "@/components/CardVersion3";
 import { HorizontalOverflow } from "@/components/HorizontalOverflow";
 import { StickyNav } from "@/components/StickyNav";
 import { VisuallyHiddenExample } from "@/components/VisuallyHiddenExample";
+import { SemanticHTML } from "@/components/SemanicHTML";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -56,6 +57,7 @@ export default function Home() {
         <HorizontalOverflow />
         <StickyNav />
         <VisuallyHiddenExample />
+        <SemanticHTML />
       </main>
       <footer>
         <HorizontalLine />
