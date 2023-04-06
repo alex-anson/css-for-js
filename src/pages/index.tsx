@@ -25,6 +25,7 @@ import { VisuallyHiddenExample } from "@/components/VisuallyHiddenExample";
 import { SemanticHTML } from "@/components/SemanicHTML";
 import { StyledComponentsCodeExample } from "@/components/StyledComponentsCodeExample";
 import { BreadcrumbType, Breadcrumbs } from "@/actualComponents/Breadcrumbs";
+import { ButtonTable } from "@/compositions/buttonModule3/ButtonTable";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -66,6 +67,7 @@ export default function Home() {
           lastBreadcrumb="Sectionals"
           handleClick={(text) => console.log(`clicked ${text}`)}
         />
+        <ButtonTable />
       </main>
       <footer>
         <HorizontalLine />
