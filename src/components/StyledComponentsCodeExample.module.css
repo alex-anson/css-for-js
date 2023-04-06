@@ -1,0 +1,42 @@
+.widthWrap {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 520px;
+
+  position: relative;
+}
+
+.codeBlock {
+  background-color: var(--color-primaryLightest);
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.lang {
+  position: absolute;
+  top: -15px;
+  right: 30px;
+
+  font-size: 1.3rem;
+
+  background-color: var(--color-light);
+  padding: 3px 10px;
+  border: 1.5px solid var(--shadow-primaryLightest);
+  box-shadow: 0 1px 3px var(--color-primaryDark);
+}
+
+@media screen and (max-width: 540px) {
+  .codeBlock {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .codeBlock {
+    font-size: 0.7rem;
+  }
+}

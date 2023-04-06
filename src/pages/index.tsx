@@ -23,6 +23,7 @@ import { HorizontalOverflow } from "@/components/HorizontalOverflow";
 import { StickyNav } from "@/components/StickyNav";
 import { VisuallyHiddenExample } from "@/components/VisuallyHiddenExample";
 import { SemanticHTML } from "@/components/SemanicHTML";
+import { StyledComponentsCodeExample } from "@/components/StyledComponentsCodeExample";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -58,6 +59,7 @@ export default function Home() {
         <StickyNav />
         <VisuallyHiddenExample />
         <SemanticHTML />
+        <StyledComponentsCodeExample />
       </main>
       <footer>
         <HorizontalLine />
