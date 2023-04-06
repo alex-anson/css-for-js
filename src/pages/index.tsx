@@ -24,6 +24,7 @@ import { StickyNav } from "@/components/StickyNav";
 import { VisuallyHiddenExample } from "@/components/VisuallyHiddenExample";
 import { SemanticHTML } from "@/components/SemanicHTML";
 import { StyledComponentsCodeExample } from "@/components/StyledComponentsCodeExample";
+import { BreadcrumbType, Breadcrumbs } from "@/actualComponents/Breadcrumbs";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -60,6 +61,10 @@ export default function Home() {
         <VisuallyHiddenExample />
         <SemanticHTML />
         <StyledComponentsCodeExample />
+        <Breadcrumbs
+          crumbs={getBreadcrumbs()}
+          handleClick={(text) => console.log(`clicked ${text}`)}
+        />
       </main>
       <footer>
         <HorizontalLine />
@@ -70,4 +75,13 @@ export default function Home() {
       </footer>
     </>
   );
+}
+
+function getBreadcrumbs(): BreadcrumbType["crumbs"] {
+  const crumbMap = new Map();
+  crumbMap.set("Home", "#home");
+  crumbMap.set("Living Room", "#living");
+  crumbMap.set("Couches", "#living/couch");
+  crumbMap.set("Sectionals", "#living/couch/sectional");
+  return crumbMap;
 }
