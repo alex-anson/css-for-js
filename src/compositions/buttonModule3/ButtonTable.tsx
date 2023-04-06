@@ -1,6 +1,7 @@
-import React from "react";
+// Libs
 import styled from "styled-components";
 
+// Local
 import { Button } from "@/compositions/buttonModule3/Button";
 
 export function ButtonTable() {
