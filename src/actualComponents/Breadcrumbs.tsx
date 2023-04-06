@@ -15,7 +15,7 @@ export function Breadcrumbs(props: BreadcrumbType): JSX.Element {
       <h2>breadcrumbs component</h2>
       <div className={styles.widthWrap}>
         <nav aria-label="Breadcrumb">
-          <ul className={styles.list}>
+          <ol className={styles.list}>
             {[...props.crumbs].map(([text, href]) => (
               <li key={text} className={styles.item}>
                 <a href={href} onClick={() => props.handleClick(text)}>
@@ -24,7 +24,7 @@ export function Breadcrumbs(props: BreadcrumbType): JSX.Element {
               </li>
             ))}
             <li className={styles.lastItem}>{props.lastBreadcrumb}</li>
-          </ul>
+          </ol>
         </nav>
       </div>
     </section>
