@@ -3,7 +3,8 @@ export const COLORS = {
   primaryLight: "hsl(235deg 100% 62%)",
   white: "hsl(0deg 0% 100%)",
   offwhite: "hsl(235deg 85% 97%)",
-  gray: "hsl(240deg 10% 50%)",
+  // gray: "hsl(240deg 10% 50%)", <- fails accessiblity with the bg color i picked
+  gray: "hsl(240deg 10% 45%)",
   transparentGray15: "hsl(240deg 10% 50% / 0.15)",
   transparentGray75: "hsl(240deg 10% 50% / 0.75)",
   black: "hsl(0deg 0% 0%)",

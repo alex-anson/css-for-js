@@ -45,6 +45,7 @@ const Base = styled.button<StyledComponentProps>`
   font-family: ${roboto.style.fontFamily};
   outline-offset: 3px;
   transition: color 0.2s, background-color 0.2s;
+  cursor: pointer;
 
   font-size: ${(props) => props.size === "small" && "1rem"};
   font-size: ${(props) => props.size === "medium" && "1.125rem"};
@@ -92,7 +93,7 @@ const SecondaryButton = styled(Base)`
 `;
 
 const GhostButton = styled(Base)`
-  color: ${COLORS.transparentGray75};
+  color: ${COLORS.gray};
   background-color: transparent;
   border: 2px solid transparent;
 

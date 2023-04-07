@@ -11,7 +11,7 @@ export function ButtonTable() {
   return (
     <section>
       <h2>button composition</h2>
-      <div>
+      <Wrapper>
         <Table cellSpacing={0} cellPadding={0}>
           <thead>
             <tr>
@@ -78,10 +78,18 @@ export function ButtonTable() {
             </tr>
           </tbody>
         </Table>
-      </div>
+      </Wrapper>
     </section>
   );
 }
+
+const Wrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 700px;
+`;
 
 /**
  * NOTE: This `Table` component uses nesting, which
