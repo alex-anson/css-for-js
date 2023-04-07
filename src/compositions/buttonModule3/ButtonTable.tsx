@@ -213,9 +213,7 @@ function MobileTable(): JSX.Element {
 const RegularWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  max-width: 700px;
+  max-width: fit-content;
 
   @media screen and (max-width: 710px) {
     display: none;
@@ -225,9 +223,9 @@ const RegularWrapper = styled.div`
 const MobileWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  max-width: 314px;
+  padding-left: 12px;
+  padding-right: 12px;
+  max-width: fit-content;
 
   margin-top: 12px;
 

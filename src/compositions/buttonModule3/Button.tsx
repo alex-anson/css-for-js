@@ -22,19 +22,19 @@ type SizesType = {
 const SIZES: SizesType = {
   small: {
     "--fontSize": "1rem",
-    "--padding": "8px 16px",
+    "--padding": "6px 12px",
     "--borderRadius": "2px",
     "--lineHeight": 1.125,
   },
   medium: {
     "--fontSize": "1.125rem",
-    "--padding": "16px 24px",
+    "--padding": "14px 20px",
     "--borderRadius": "2px",
     "--lineHeight": 1.17,
   },
   large: {
     "--fontSize": "1.32rem",
-    "--padding": "20px 36px",
+    "--padding": "18px 32px",
     "--borderRadius": "4px",
     "--lineHeight": 1.17,
   },
