@@ -39,4 +39,8 @@
   .codeBlock {
     font-size: 0.7rem;
   }
+
+  .lang {
+    top: -25px;
+  }
 }
