@@ -20,7 +20,7 @@ type SizesType = {
   large: Record<PropertiesType, string | number>;
 };
 
-const SIZES: SizesType = {
+export const SIZES: SizesType = {
   small: {
     "--fontSize": "1rem",
     "--padding": "6px 12px",
@@ -48,7 +48,7 @@ interface Props {
   children: string;
 }
 
-export function Button(props: Props): JSX.Element {
+export default function Button(props: Props): JSX.Element {
   const styles = SIZES[props.size];
 
   switch (props.variant) {
@@ -74,7 +74,7 @@ interface StyledComponentProps {
   readonly style: SizesType["small"];
 }
 
-const Base = styled.button<StyledComponentProps>`
+export const BaseButton = styled.button<StyledComponentProps>`
   /* should technically be display: block, but i wanted to center the buttons in this case. */
   display: inline-block;
   text-transform: uppercase;
@@ -83,6 +83,7 @@ const Base = styled.button<StyledComponentProps>`
   outline-offset: 3px;
   transition: color 0.2s, background-color 0.2s;
   cursor: pointer;
+  border: 2px solid transparent;
 
   /* the focus color for the ghost button is different - BUT composed styles (aka, using the styled ƒn - i.e. "styled(Base)") will always win in terms of specificity. */
   &:focus {
@@ -95,17 +96,16 @@ const Base = styled.button<StyledComponentProps>`
   line-height: var(--lineHeight);
 `;
 
-const PrimaryButton = styled(Base)`
+export const PrimaryButton = styled(BaseButton)`
   background-color: ${COLORS.primary};
   color: ${COLORS.white};
-  border: 2px solid transparent;
 
   &:hover {
     background-color: ${COLORS.primaryLight};
   }
 `;
 
-const SecondaryButton = styled(Base)`
+const SecondaryButton = styled(BaseButton)`
   background-color: ${COLORS.white};
   color: ${COLORS.primary};
   border: 2px solid ${COLORS.primary};
@@ -115,10 +115,9 @@ const SecondaryButton = styled(Base)`
   }
 `;
 
-const GhostButton = styled(Base)`
+const GhostButton = styled(BaseButton)`
   color: ${COLORS.gray};
   background-color: transparent;
-  border: 2px solid transparent;
 
   &:hover {
     color: ${COLORS.black};

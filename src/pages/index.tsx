@@ -26,6 +26,7 @@ import { SemanticHTML } from "@/components/SemanicHTML";
 import { StyledComponentsCodeExample } from "@/components/StyledComponentsCodeExample";
 import { BreadcrumbType, Breadcrumbs } from "@/actualComponents/Breadcrumbs";
 import { ButtonTable } from "@/compositions/buttonModule3/ButtonTable";
+import { ButtonLevelsTable } from "@/compositions/buttonModule3/ButtonLevelsTable";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -68,6 +69,7 @@ export default function Home() {
           handleClick={(text) => console.log(`clicked ${text}`)}
         />
         <ButtonTable />
+        <ButtonLevelsTable />
       </main>
       <footer>
         <HorizontalLine />

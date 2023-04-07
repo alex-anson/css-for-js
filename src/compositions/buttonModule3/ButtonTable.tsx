@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Roboto } from "next/font/google";
 
 // Local
-import { Button } from "@/compositions/buttonModule3/Button";
+import Button from "@/compositions/buttonModule3/Button";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
@@ -249,7 +249,7 @@ const MobileWrapper = styled.div`
  * slippery slope, but it can be fine to do things this way
  * if you're disciplined!
  */
-const Table = styled.table`
+export const Table = styled.table`
   background-color: #ededed;
   font-family: ${roboto.style.fontFamily}, sans-serif;
 
