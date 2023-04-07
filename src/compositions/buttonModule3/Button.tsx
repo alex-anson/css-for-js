@@ -7,6 +7,7 @@ import { COLORS } from "./constants";
 
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
+// #region Types & Object for the various sizes
 type PropertiesType =
   | "--fontSize"
   | "--padding"
@@ -39,6 +40,7 @@ const SIZES: SizesType = {
     "--lineHeight": 1.17,
   },
 } as const;
+// #endregion Types & Object for the various sizes
 
 interface Props {
   variant: "fill" | "outline" | "ghost";
@@ -82,6 +84,11 @@ const Base = styled.button<StyledComponentProps>`
   transition: color 0.2s, background-color 0.2s;
   cursor: pointer;
 
+  /* the focus color for the ghost button is different - BUT composed styles (aka, using the styled ƒn - i.e. "styled(Base)") will always win in terms of specificity. */
+  &:focus {
+    outline: 2px solid ${COLORS.primary};
+  }
+
   font-size: var(--fontSize);
   padding: var(--padding);
   border-radius: var(--borderRadius);
@@ -96,10 +103,6 @@ const PrimaryButton = styled(Base)`
   &:hover {
     background-color: ${COLORS.primaryLight};
   }
-
-  &:focus {
-    outline: 2px solid ${COLORS.primary};
-  }
 `;
 
 const SecondaryButton = styled(Base)`
@@ -109,10 +112,6 @@ const SecondaryButton = styled(Base)`
 
   &:hover {
     background-color: ${COLORS.offwhite};
-  }
-
-  &:focus {
-    outline: 2px solid ${COLORS.primary};
   }
 `;
 
