@@ -7,6 +7,39 @@ import { COLORS } from "./constants";
 
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
+type PropertiesType =
+  | "--fontSize"
+  | "--padding"
+  | "--borderRadius"
+  | "--lineHeight";
+
+type SizesType = {
+  small: Record<PropertiesType, string | number>;
+  medium: Record<PropertiesType, string | number>;
+  large: Record<PropertiesType, string | number>;
+};
+
+const SIZES: SizesType = {
+  small: {
+    "--fontSize": "1rem",
+    "--padding": "8px 16px",
+    "--borderRadius": "2px",
+    "--lineHeight": 1.125,
+  },
+  medium: {
+    "--fontSize": "1.125rem",
+    "--padding": "16px 24px",
+    "--borderRadius": "2px",
+    "--lineHeight": 1.17,
+  },
+  large: {
+    "--fontSize": "1.32rem",
+    "--padding": "20px 36px",
+    "--borderRadius": "4px",
+    "--lineHeight": 1.17,
+  },
+} as const;
+
 interface Props {
   variant: "fill" | "outline" | "ghost";
   size: "small" | "medium" | "large";
@@ -14,15 +47,15 @@ interface Props {
 }
 
 export function Button(props: Props): JSX.Element {
+  const styles = SIZES[props.size];
+
   switch (props.variant) {
     case "fill":
-      return <PrimaryButton size={props.size}>{props.children}</PrimaryButton>;
+      return <PrimaryButton style={styles}>{props.children}</PrimaryButton>;
     case "outline":
-      return (
-        <SecondaryButton size={props.size}>{props.children}</SecondaryButton>
-      );
+      return <SecondaryButton style={styles}>{props.children}</SecondaryButton>;
     case "ghost":
-      return <GhostButton size={props.size}>{props.children}</GhostButton>;
+      return <GhostButton style={styles}>{props.children}</GhostButton>;
     default:
       // This is how typescript keeps "future you" safe. 🥰🥰🥰
       const _exhaustivenessCheck: never = props.variant;
@@ -35,7 +68,8 @@ export function Button(props: Props): JSX.Element {
 /* -------------- */
 // typescript requires a little extra typing for "custom props" => https://styled-components.com/docs/api#using-custom-props
 interface StyledComponentProps {
-  readonly size: string;
+  // any of the sizes will work here.
+  readonly style: SizesType["small"];
 }
 
 const Base = styled.button<StyledComponentProps>`
@@ -48,21 +82,10 @@ const Base = styled.button<StyledComponentProps>`
   transition: color 0.2s, background-color 0.2s;
   cursor: pointer;
 
-  font-size: ${(props) => props.size === "small" && "1rem"};
-  font-size: ${(props) => props.size === "medium" && "1.125rem"};
-  font-size: ${(props) => props.size === "large" && "1.32rem"};
-
-  padding: ${(props) => props.size === "small" && "8px 16px"};
-  padding: ${(props) => props.size === "medium" && "16px 24px"};
-  padding: ${(props) => props.size === "large" && "20px 36px"};
-
-  border-radius: ${(props) =>
-    (props.size === "small" || props.size === "medium") && "2px"};
-  border-radius: ${(props) => props.size === "large" && "4px"};
-
-  line-height: ${(props) => props.size === "small" && 1.125};
-  line-height: ${(props) =>
-    (props.size === "medium" || props.size === "large") && 1.17};
+  font-size: var(--fontSize);
+  padding: var(--padding);
+  border-radius: var(--borderRadius);
+  line-height: var(--lineHeight);
 `;
 
 const PrimaryButton = styled(Base)`
