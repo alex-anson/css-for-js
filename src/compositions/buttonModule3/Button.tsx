@@ -39,6 +39,7 @@ interface StyledComponentProps {
 }
 
 const Base = styled.button<StyledComponentProps>`
+  /* should technically be display: block, but i wanted to center the buttons in this case. */
   display: inline-block;
   text-transform: uppercase;
   font-weight: 500;

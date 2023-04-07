@@ -11,14 +11,96 @@ export function ButtonTable() {
   return (
     <section>
       <h2>button composition</h2>
-      <Wrapper>
+      {/* Screen widths above 710px */}
+      <TheTable />
+      {/* Screen widths below 710px */}
+      <MobileTable />
+    </section>
+  );
+}
+
+function TheTable(): JSX.Element {
+  return (
+    <RegularWrapper>
+      <Table cellSpacing={0} cellPadding={0}>
+        <thead>
+          <tr>
+            <th>🦋</th>
+            <th>Fill</th>
+            <th>Outline</th>
+            <th>Ghost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Small</td>
+            <td>
+              <Button size="small" variant="fill">
+                Button
+              </Button>
+            </td>
+            <td>
+              <Button size="small" variant="outline">
+                Button
+              </Button>
+            </td>
+            <td>
+              <Button size="small" variant="ghost">
+                Button
+              </Button>
+            </td>
+          </tr>
+          <tr>
+            <td>Medium</td>
+            <td>
+              <Button size="medium" variant="fill">
+                Button
+              </Button>
+            </td>
+            <td>
+              <Button size="medium" variant="outline">
+                Button
+              </Button>
+            </td>
+            <td>
+              <Button size="medium" variant="ghost">
+                Button
+              </Button>
+            </td>
+          </tr>
+          <tr>
+            <td>Large</td>
+            <td>
+              <Button size="large" variant="fill">
+                Button
+              </Button>
+            </td>
+            <td>
+              <Button size="large" variant="outline">
+                Button
+              </Button>
+            </td>
+            <td>
+              <Button size="large" variant="ghost">
+                Button
+              </Button>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+    </RegularWrapper>
+  );
+}
+
+function MobileTable(): JSX.Element {
+  return (
+    <>
+      <MobileWrapper>
         <Table cellSpacing={0} cellPadding={0}>
           <thead>
             <tr>
               <th>🦋</th>
               <th>Fill</th>
-              <th>Outline</th>
-              <th>Ghost</th>
             </tr>
           </thead>
           <tbody>
@@ -26,16 +108,6 @@ export function ButtonTable() {
               <td>Small</td>
               <td>
                 <Button size="small" variant="fill">
-                  Button
-                </Button>
-              </td>
-              <td>
-                <Button size="small" variant="outline">
-                  Button
-                </Button>
-              </td>
-              <td>
-                <Button size="small" variant="ghost">
                   Button
                 </Button>
               </td>
@@ -47,11 +119,73 @@ export function ButtonTable() {
                   Button
                 </Button>
               </td>
+            </tr>
+            <tr>
+              <td>Large</td>
+              <td>
+                <Button size="large" variant="fill">
+                  Button
+                </Button>
+              </td>
+            </tr>
+          </tbody>
+        </Table>
+      </MobileWrapper>
+      <MobileWrapper>
+        <Table cellSpacing={0} cellPadding={0}>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Outline</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Small</td>
+              <td>
+                <Button size="small" variant="outline">
+                  Button
+                </Button>
+              </td>
+            </tr>
+            <tr>
+              <td>Medium</td>
               <td>
                 <Button size="medium" variant="outline">
                   Button
                 </Button>
               </td>
+            </tr>
+            <tr>
+              <td>Large</td>
+              <td>
+                <Button size="large" variant="outline">
+                  Button
+                </Button>
+              </td>
+            </tr>
+          </tbody>
+        </Table>
+      </MobileWrapper>
+      <MobileWrapper>
+        <Table cellSpacing={0} cellPadding={0}>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Ghost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Small</td>
+              <td>
+                <Button size="small" variant="ghost">
+                  Button
+                </Button>
+              </td>
+            </tr>
+            <tr>
+              <td>Medium</td>
               <td>
                 <Button size="medium" variant="ghost">
                   Button
@@ -61,16 +195,6 @@ export function ButtonTable() {
             <tr>
               <td>Large</td>
               <td>
-                <Button size="large" variant="fill">
-                  Button
-                </Button>
-              </td>
-              <td>
-                <Button size="large" variant="outline">
-                  Button
-                </Button>
-              </td>
-              <td>
                 <Button size="large" variant="ghost">
                   Button
                 </Button>
@@ -78,17 +202,38 @@ export function ButtonTable() {
             </tr>
           </tbody>
         </Table>
-      </Wrapper>
-    </section>
+      </MobileWrapper>
+    </>
   );
 }
 
-const Wrapper = styled.div`
+/* -------------- */
+/* SECTION: STYLES */
+/* -------------- */
+const RegularWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding-left: 16px;
   padding-right: 16px;
   max-width: 700px;
+
+  @media screen and (max-width: 710px) {
+    display: none;
+  }
+`;
+
+const MobileWrapper = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  max-width: 314px;
+
+  margin-top: 12px;
+
+  @media screen and (min-width: 711px) {
+    display: none;
+  }
 `;
 
 /**
