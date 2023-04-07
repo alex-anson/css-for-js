@@ -1,8 +1,11 @@
 // Libs
 import styled from "styled-components";
+import { Roboto } from "next/font/google";
 
 // Local
 import { Button } from "@/compositions/buttonModule3/Button";
+
+const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
 export function ButtonTable() {
   return (
@@ -11,7 +14,7 @@ export function ButtonTable() {
       <div>
         <Table cellSpacing={0} cellPadding={0}>
           <tr>
-            <th></th>
+            <th>🦋</th>
             <th>Fill</th>
             <th>Outline</th>
             <th>Ghost</th>
@@ -92,15 +95,21 @@ export function ButtonTable() {
  * if you're disciplined!
  */
 const Table = styled.table`
-  font-family: sans-serif;
+  background-color: #ededed;
+  font-family: ${roboto.style.fontFamily}, sans-serif;
 
   th,
   td {
     text-align: center;
     padding: 16px;
   }
+  th:first-of-type {
+    font-size: 2rem;
+    padding: 0;
+  }
   th {
     border-bottom: 1px solid hsl(0deg 0% 80%);
+    font-weight: 400;
   }
   td:first-of-type,
   th:first-of-type {

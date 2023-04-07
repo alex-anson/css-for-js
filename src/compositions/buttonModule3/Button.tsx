@@ -33,40 +33,75 @@ export function Button(props: Props): JSX.Element {
 /* -------------- */
 /* SECTION: STYLES */
 /* -------------- */
-const Base = styled.button<StyledComponentProps>`
-  display: block;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-family: ${roboto.style.fontFamily};
-
-  font-size: ${(props) => props.size === "small" && "16px"};
-  font-size: ${(props) => props.size === "medium" && "18px"};
-  font-size: ${(props) => props.size === "large" && "21px"};
-
-  padding: ${(props) => props.size === "small" && "8px 16px"};
-  padding: ${(props) => props.size === "medium" && "16px 24px"};
-  padding: ${(props) => props.size === "large" && "20px 36px"};
-
-  border-radius: ${(props) => props.size === "small" && "2px"};
-  border-radius: ${(props) => props.size === "medium" && "2px"};
-  border-radius: ${(props) => props.size === "large" && "4px"};
-`;
-
 // typescript requires a little extra typing for "custom props" => https://styled-components.com/docs/api#using-custom-props
 interface StyledComponentProps {
   readonly size: string;
 }
 
-const PrimaryButton = styled(Base)<StyledComponentProps>`
+const Base = styled.button<StyledComponentProps>`
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: ${roboto.style.fontFamily};
+  outline-offset: 3px;
+  transition: color 0.2s, background-color 0.2s;
+
+  font-size: ${(props) => props.size === "small" && "1rem"};
+  font-size: ${(props) => props.size === "medium" && "1.125rem"};
+  font-size: ${(props) => props.size === "large" && "1.32rem"};
+
+  padding: ${(props) => props.size === "small" && "8px 16px"};
+  padding: ${(props) => props.size === "medium" && "16px 24px"};
+  padding: ${(props) => props.size === "large" && "20px 36px"};
+
+  border-radius: ${(props) =>
+    (props.size === "small" || props.size === "medium") && "2px"};
+  border-radius: ${(props) => props.size === "large" && "4px"};
+
+  line-height: ${(props) => props.size === "small" && 1.125};
+  line-height: ${(props) =>
+    (props.size === "medium" || props.size === "large") && 1.17};
+`;
+
+const PrimaryButton = styled(Base)`
   background-color: ${COLORS.primary};
   color: ${COLORS.white};
+  border: 2px solid transparent;
+
+  &:hover {
+    background-color: ${COLORS.primaryLight};
+  }
+
+  &:focus {
+    outline: 2px solid ${COLORS.primary};
+  }
 `;
 
-const SecondaryButton = styled(Base)<StyledComponentProps>`
+const SecondaryButton = styled(Base)`
   background-color: ${COLORS.white};
   color: ${COLORS.primary};
+  border: 2px solid ${COLORS.primary};
+
+  &:hover {
+    background-color: ${COLORS.offwhite};
+  }
+
+  &:focus {
+    outline: 2px solid ${COLORS.primary};
+  }
 `;
 
-const GhostButton = styled(Base)<StyledComponentProps>`
+const GhostButton = styled(Base)`
   color: ${COLORS.transparentGray75};
+  background-color: transparent;
+  border: 2px solid transparent;
+
+  &:hover {
+    color: ${COLORS.black};
+    background-color: ${COLORS.transparentGray15};
+  }
+
+  &:focus {
+    outline: 2px solid ${COLORS.transparentGray75};
+  }
 `;
