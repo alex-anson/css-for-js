@@ -1,0 +1,62 @@
+.dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow-y: auto;
+}
+
+/* get rid of the margin that's on all my other h2s in this repo */
+.dialog h2 {
+  margin: 0;
+}
+
+.interiorWrapper {
+  min-height: 100vh;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-align: center;
+}
+
+.dialogOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: blur(4px);
+}
+
+.dialogSpan {
+  display: inline-block;
+  height: 100vh;
+  vertical-align: middle;
+}
+
+.beginDialog {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid hsla(0, 0%, 13%, 0.6);
+  background-color: var(--color-light);
+  vertical-align: middle;
+  box-shadow: 0 0 2px var(--shadow-primaryLightest);
+  transition: all 0.2s;
+  /* tailwind => transform */
+}
+/* lives where the beginDialog class lives. */
+.parentDiv {
+  padding: 18px 24px;
+  max-width: 480px;
+  text-align: left;
+}
+
+.dialogHeader {
+  margin-bottom: 16px;
+}
+
+.dialogHeader h1 {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-mainBG);
+}

@@ -1,3 +1,4 @@
+// #region Imports
 // Libs
 import Head from "next/head";
 import { Manrope } from "next/font/google";
@@ -27,6 +28,8 @@ import { StyledComponentsCodeExample } from "@/components/StyledComponentsCodeEx
 import { BreadcrumbType, Breadcrumbs } from "@/actualComponents/Breadcrumbs";
 import { ButtonTable } from "@/compositions/buttonModule3/ButtonTable";
 import { ButtonLevelsTable } from "@/compositions/buttonModule3/ButtonLevelsTable";
+import SupportTicketModal from "@/components/SupportTicketModal";
+// #endregion Imports
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -70,6 +73,7 @@ export default function Home() {
         />
         <ButtonTable />
         <ButtonLevelsTable />
+        <SupportTicketModal />
       </main>
       <footer>
         <HorizontalLine />
