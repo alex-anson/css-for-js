@@ -1,82 +1,61 @@
 // Libs
-import styled from "styled-components";
+import styled, { StyledComponentPropsWithRef } from "styled-components";
 import { Roboto } from "next/font/google";
+import React from "react";
 
 // Local
 import { COLORS } from "./constants";
 
 const roboto = Roboto({ weight: "500", subsets: ["latin"] });
 
-// #region Types & Object for the various sizes
-type PropertiesType =
-  | "--fontSize"
-  | "--padding"
-  | "--borderRadius"
-  | "--lineHeight";
-
-type SizesType = {
-  small: Record<PropertiesType, string | number>;
-  medium: Record<PropertiesType, string | number>;
-  large: Record<PropertiesType, string | number>;
-};
-
-export const SIZES: SizesType = {
-  small: {
-    "--fontSize": "1rem",
-    "--padding": "6px 12px",
-    "--borderRadius": "2px",
-    "--lineHeight": 1.125,
-  },
-  medium: {
-    "--fontSize": "1.125rem",
-    "--padding": "14px 20px",
-    "--borderRadius": "2px",
-    "--lineHeight": 1.17,
-  },
-  large: {
-    "--fontSize": "1.32rem",
-    "--padding": "18px 32px",
-    "--borderRadius": "4px",
-    "--lineHeight": 1.17,
-  },
-} as const;
-// #endregion Types & Object for the various sizes
-
-interface Props {
+type Ref = HTMLButtonElement;
+type Props = {
   variant: "fill" | "outline" | "ghost";
   size: "small" | "medium" | "large";
   children: string;
-}
+} & React.ComponentPropsWithRef<"button">;
 
-export default function Button(props: Props): JSX.Element {
-  const styles = SIZES[props.size];
-
-  switch (props.variant) {
+const Button = React.forwardRef<Ref, Props>(function Button(
+  { variant, size, children, ...props },
+  ref
+): JSX.Element {
+  switch (variant) {
     case "fill":
-      return <PrimaryButton style={styles}>{props.children}</PrimaryButton>;
+      return (
+        <PrimaryButton size={size} ref={ref} {...props}>
+          {children}
+        </PrimaryButton>
+      );
     case "outline":
-      return <SecondaryButton style={styles}>{props.children}</SecondaryButton>;
+      return (
+        <SecondaryButton size={size} ref={ref} {...props}>
+          {children}
+        </SecondaryButton>
+      );
     case "ghost":
-      return <GhostButton style={styles}>{props.children}</GhostButton>;
+      return (
+        <GhostButton size={size} ref={ref} {...props}>
+          {children}
+        </GhostButton>
+      );
     default:
       // This is how typescript keeps "future you" safe. 🥰🥰🥰
-      const _exhaustivenessCheck: never = props.variant;
+      const _exhaustivenessCheck: never = variant;
       return _exhaustivenessCheck;
   }
-}
+});
+export default Button;
 
 /* -------------- */
 /* SECTION: STYLES */
 /* -------------- */
 // typescript requires a little extra typing for "custom props" => https://styled-components.com/docs/api#using-custom-props
-interface StyledComponentProps {
-  // any of the sizes will work here.
-  readonly style: SizesType["small"];
-}
+type MyBtnSCProps = {
+  readonly size: string;
+} & StyledComponentPropsWithRef<"button">;
 
-export const BaseButton = styled.button<StyledComponentProps>`
-  /* should technically be display: block, but i wanted to center the buttons in this case. */
-  display: inline-block;
+export const BaseButton = styled.button<MyBtnSCProps>`
+  display: block;
   text-transform: uppercase;
   font-weight: 500;
   font-family: ${roboto.style.fontFamily};
@@ -90,13 +69,22 @@ export const BaseButton = styled.button<StyledComponentProps>`
     outline: 2px solid ${COLORS.primary};
   }
 
-  font-size: var(--fontSize);
-  padding: var(--padding);
-  border-radius: var(--borderRadius);
-  line-height: var(--lineHeight);
+  /* refactored to NOT use the 'var()' method, could not figure out how to get BaseButton typed correctly. */
+  font-size: ${(props) => props.size === "small" && "1rem"};
+  font-size: ${(props) => props.size === "medium" && "1.125rem"};
+  font-size: ${(props) => props.size === "large" && "1.32rem"};
+  padding: ${(props) => props.size === "small" && "8px 16px"};
+  padding: ${(props) => props.size === "medium" && "16px 24px"};
+  padding: ${(props) => props.size === "large" && "20px 36px"};
+  border-radius: ${(props) =>
+    (props.size === "small" || props.size === "medium") && "2px"};
+  border-radius: ${(props) => props.size === "large" && "4px"};
+  line-height: ${(props) => props.size === "small" && 1.125};
+  line-height: ${(props) =>
+    (props.size === "medium" || props.size === "large") && 1.17};
 `;
 
-export const PrimaryButton = styled(BaseButton)`
+export const PrimaryButton = styled(BaseButton)<MyBtnSCProps>`
   background-color: ${COLORS.primary};
   color: ${COLORS.white};
 
@@ -105,7 +93,7 @@ export const PrimaryButton = styled(BaseButton)`
   }
 `;
 
-const SecondaryButton = styled(BaseButton)`
+const SecondaryButton = styled(BaseButton)<MyBtnSCProps>`
   background-color: ${COLORS.white};
   color: ${COLORS.primary};
   border: 2px solid ${COLORS.primary};

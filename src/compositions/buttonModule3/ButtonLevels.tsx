@@ -1,39 +1,61 @@
 // Libs
 import styled from "styled-components";
+import React from "react";
 
 // Local
-import { BaseButton, SIZES, PrimaryButton } from "./Button";
+import { BaseButton, PrimaryButton } from "./Button";
 import { COLORS } from "./constants";
 
-interface Props {
+type Ref = HTMLButtonElement;
+type Props = {
   /** default = primary app color scheme */
   level: "default" | "info" | "success" | "warn" | "danger";
   size: "small" | "medium" | "large";
   children: string;
-}
+} & React.ComponentPropsWithRef<"button">;
 
-export default function ButtonLevels(props: Props): JSX.Element {
-  const styles = SIZES[props.size];
-
-  switch (props.level) {
+const ButtonLevels = React.forwardRef<Ref, Props>(function Button(
+  { level, size, children, ...props },
+  ref
+): JSX.Element {
+  switch (level) {
     case "default":
-      return <PrimaryButton style={styles}>{props.children}</PrimaryButton>;
+      return (
+        <PrimaryButton size={size} ref={ref} {...props}>
+          {children}
+        </PrimaryButton>
+      );
     case "info":
-      return <InfoButton style={styles}>{props.children}</InfoButton>;
+      return (
+        <InfoButton size={size} ref={ref} {...props}>
+          {children}
+        </InfoButton>
+      );
     case "success":
-      return <SuccessButton style={styles}>{props.children}</SuccessButton>;
+      return (
+        <SuccessButton size={size} ref={ref} {...props}>
+          {children}
+        </SuccessButton>
+      );
     case "warn":
-      return <WarnButton style={styles}>{props.children}</WarnButton>;
+      return (
+        <WarnButton size={size} ref={ref} {...props}>
+          {children}
+        </WarnButton>
+      );
     case "danger":
-      return <DangerButton style={styles}>{props.children}</DangerButton>;
+      return (
+        <DangerButton size={size} ref={ref} {...props}>
+          {children}
+        </DangerButton>
+      );
     default:
       // This is how typescript keeps "future you" safe. 🥰🥰🥰
-      const _exhaustivenessCheck: never = props.level;
+      const _exhaustivenessCheck: never = level;
       return _exhaustivenessCheck;
   }
-}
-
-// I could've done this in a style similar to that which was used for the sizes 🤷‍♀️
+});
+export default ButtonLevels;
 
 const InfoButton = styled(BaseButton)`
   background-color: ${COLORS.info};
