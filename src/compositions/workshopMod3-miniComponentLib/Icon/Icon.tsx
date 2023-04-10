@@ -12,10 +12,8 @@ interface Props {
   id: "search" | "at-sign" | "chevron-down";
   /** provide unit in `rem` */
   size: number;
-  /** provide unit in `em` */
-  strokeWidth: number;
   // FIXME: get `any` out
-  delegated: any;
+  delegated?: any;
 }
 
 export default function Icon(props: Props): JSX.Element {
@@ -25,7 +23,6 @@ export default function Icon(props: Props): JSX.Element {
     <Wrapper
       style={{
         "--size": props.size + "rem",
-        "--stroke-width": props.strokeWidth + "em",
       }}
       {...props.delegated}
     >
@@ -40,6 +37,5 @@ const Wrapper = styled.div`
 
   & > svg {
     display: block;
-    stroke-width: var(--stroke-width);
   }
 `;

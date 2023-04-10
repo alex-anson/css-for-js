@@ -4,7 +4,7 @@ import styled from "styled-components";
 // Local
 import { COLORS } from "./constants";
 import ProgressBar from "./ProgressBar";
-import InputSelect from "./InputSelect";
+import InputSelect from "./Select";
 
 export default function MiniComponentLibrary(): JSX.Element {
   return (
@@ -26,7 +26,7 @@ export default function MiniComponentLibrary(): JSX.Element {
           "Peach 👑",
           "Bowser 🐲",
           "DK 🦍",
-          "random really long option that's available for some reason",
+          "random looonnng option 🙄",
         ]}
       />
     </Section>
