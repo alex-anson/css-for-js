@@ -90,6 +90,10 @@ export default function ProgressBar(props: Props): JSX.Element {
           />
         </WrappingSVG>
       </TheProgressBar>
+
+      <VisuallyHidden
+        screenReaderText={`Current progress: ${percentageComplete}%`}
+      />
     </Wrapper>
   );
 }
