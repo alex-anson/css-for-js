@@ -32,6 +32,7 @@ const widthInnerBarLG = 370 - 8;
 // 24 - 8 because of the "padding"
 const heightInnerBarLG = 16;
 
+// TODO: make this more flexible => not a hardcoded 370 width
 export default function ProgressBar(props: Props): JSX.Element {
   const percentageComplete = props.value;
   /**
@@ -112,6 +113,7 @@ const WrappingSVG = styled.svg<ProgressBarSCProps>`
   width: ${totalBarWidthWithUnit};
   height: var(--height);
   border-radius: var(--borderRadius);
+  /** trim off corners when progress bar is near-full */
   overflow: hidden;
   background-color: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
