@@ -27,9 +27,19 @@ interface Props {
 }
 
 const totalBarWidth = 370;
+// 8 because there's 4px of "padding" on the left & right
+const widthInnerBarLG = 370 - 8;
+// 24 - 8 because of the "padding"
+const heightInnerBarLG = 16;
+
 export default function ProgressBar(props: Props): JSX.Element {
   const percentageComplete = props.value;
+  /**
+   * not a ratio, but i dunno what to name this. it's the non-percent version ...
+   * i.e. 50% becomes 185. (because 50% of 370 is 185.)
+   */
   const ratioComplete = (percentageComplete * totalBarWidth) / 100;
+  const ratioCompleteLG = (percentageComplete * widthInnerBarLG) / 100;
 
   const styles = PROGRESS_BAR_SIZES[props.size];
   return (
@@ -45,7 +55,23 @@ export default function ProgressBar(props: Props): JSX.Element {
         style={styles}
         size={props.size}
       >
-        <WrappingSVG style={styles} size={props.size} rx={8}>
+        <WrappingSVG style={styles} size={props.size}>
+          {/* For the large ProgressRectangle: need to use clipPath to mimic border 
+          radius. Don't want the right side to have a border radius until it has 
+          reached 100%. */}
+          <defs>
+            <clipPath id="round-corner">
+              <rect
+                x="4"
+                y="4"
+                width={widthInnerBarLG}
+                height={heightInnerBarLG}
+                rx="4"
+                ry="4"
+              />
+            </clipPath>
+          </defs>
+
           <BaseRectangle
             stroke="none"
             style={styles}
@@ -55,11 +81,12 @@ export default function ProgressBar(props: Props): JSX.Element {
           />
           <ProgressRectangle
             stroke="none"
-            width={ratioComplete}
+            width={props.size === "lg" ? ratioCompleteLG : ratioComplete}
             style={styles}
             size={props.size}
             x={props.size === "lg" ? 4 : 0}
             y={props.size === "lg" ? 4 : 0}
+            clipPath={props.size === "lg" ? "url(#round-corner)" : ""}
           />
         </WrappingSVG>
       </TheProgressBar>
@@ -82,9 +109,11 @@ const TheProgressBar = styled.span<ProgressBarSCProps>`
 `;
 
 const totalBarWidthWithUnit = totalBarWidth + "px";
+
 const WrappingSVG = styled.svg<ProgressBarSCProps>`
   width: ${totalBarWidthWithUnit};
   height: var(--height);
+  border-radius: var(--borderRadius);
   overflow: hidden;
 `;
 
@@ -100,8 +129,5 @@ const BaseRectangle = styled.rect<ProgressBarSCProps>`
 const ProgressRectangle = styled.rect<ProgressBarSCProps>`
   fill: ${COLORS.primary};
   height: ${(props) =>
-    props.size === "lg"
-      ? // NOTE: hardcoded 16px instead of calculating it based off of the height variable. i don't love this.
-        "16px"
-      : "var(--height)"};
+    props.size === "lg" ? heightInnerBarLG + "px" : "var(--height)"};
 `;
