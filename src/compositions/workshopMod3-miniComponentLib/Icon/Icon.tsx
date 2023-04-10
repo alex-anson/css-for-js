@@ -10,8 +10,8 @@ const icons: Record<string, Icon> = {
 
 interface Props {
   id: "search" | "at-sign" | "chevron-down";
-  /** provide unit in `rem` */
-  size: number;
+  /** consumer needs to provide the unit */
+  size: string;
   // FIXME: get `any` out
   delegated?: any;
 }
@@ -22,7 +22,7 @@ export default function Icon(props: Props): JSX.Element {
   return (
     <Wrapper
       style={{
-        "--size": props.size + "rem",
+        "--size": props.size,
       }}
       {...props.delegated}
     >

@@ -48,7 +48,7 @@ export default function InputSelect(props: Props): JSX.Element {
       <PresentationalBit>
         {displayedValue}
         <IconWrapper style={{ "--size": iconSize + "px" }}>
-          <Icon id="chevron-down" size={iconSize} />
+          <Icon id="chevron-down" size={iconSize + "px"} />
         </IconWrapper>
       </PresentationalBit>
     </CenterContents>
