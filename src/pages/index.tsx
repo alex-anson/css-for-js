@@ -29,6 +29,7 @@ import { BreadcrumbType, Breadcrumbs } from "@/actualComponents/Breadcrumbs";
 import { ButtonTable } from "@/compositions/buttonModule3/ButtonTable";
 import { ButtonLevelsTable } from "@/compositions/buttonModule3/ButtonLevelsTable";
 import SupportTicketModal from "@/components/SupportTicketModal";
+import MiniComponentLibrary from "@/compositions/workshopMod3-miniComponentLib/MiniComponentLibrary";
 // #endregion Imports
 
 const manrope = Manrope({ subsets: ["latin"] });
@@ -74,6 +75,10 @@ export default function Home() {
         <ButtonTable />
         <ButtonLevelsTable />
         <SupportTicketModal />
+
+        <HorizontalLine styles={{ marginTop: "6rem" }} />
+
+        <MiniComponentLibrary />
       </main>
       <footer>
         <HorizontalLine />
