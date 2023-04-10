@@ -38,6 +38,7 @@ export default function ProgressBar(props: Props): JSX.Element {
    * not a ratio, but i dunno what to name this. it's the non-percent version ...
    * i.e. 50% becomes 185. (because 50% of 370 is 185.)
    */
+  // i could've just used a percentage width 🤦‍♀️
   const ratioComplete = (percentageComplete * totalBarWidth) / 100;
   const ratioCompleteLG = (percentageComplete * widthInnerBarLG) / 100;
 
@@ -72,7 +73,6 @@ export default function ProgressBar(props: Props): JSX.Element {
             </clipPath>
           </defs>
 
-          <BaseRectangle stroke="none" style={styles} size={props.size} />
           <ProgressRectangle
             stroke="none"
             width={props.size === "lg" ? ratioCompleteLG : ratioComplete}
@@ -113,12 +113,7 @@ const WrappingSVG = styled.svg<ProgressBarSCProps>`
   height: var(--height);
   border-radius: var(--borderRadius);
   overflow: hidden;
-`;
-
-const BaseRectangle = styled.rect<ProgressBarSCProps>`
-  width: ${totalBarWidthWithUnit};
-  height: var(--height);
-  fill: ${COLORS.transparentGray15};
+  background-color: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
 `;
 
