@@ -72,13 +72,7 @@ export default function ProgressBar(props: Props): JSX.Element {
             </clipPath>
           </defs>
 
-          <BaseRectangle
-            stroke="none"
-            style={styles}
-            size={props.size}
-            // Avoid typescript warning by specifying rx here.
-            rx={styles["--borderRadius"]}
-          />
+          <BaseRectangle stroke="none" style={styles} size={props.size} />
           <ProgressRectangle
             stroke="none"
             width={props.size === "lg" ? ratioCompleteLG : ratioComplete}
@@ -126,8 +120,6 @@ const BaseRectangle = styled.rect<ProgressBarSCProps>`
   height: var(--height);
   fill: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
-  /* Gives typescript warning - "unknown property" */
-  /* rx: var(--borderRadius); */
 `;
 
 const ProgressRectangle = styled.rect<ProgressBarSCProps>`
