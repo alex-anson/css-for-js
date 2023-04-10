@@ -29,7 +29,7 @@ interface Props {
 const totalBarWidth = 370;
 export default function ProgressBar(props: Props): JSX.Element {
   const percentageComplete = props.value;
-  const ratioComplete = (props.value * totalBarWidth) / 100;
+  const ratioComplete = (percentageComplete * totalBarWidth) / 100;
 
   const styles = PROGRESS_BAR_SIZES[props.size];
   return (
@@ -45,7 +45,7 @@ export default function ProgressBar(props: Props): JSX.Element {
         style={styles}
         size={props.size}
       >
-        <WrappingSVG style={styles} size={props.size} rx={8} fill="red">
+        <WrappingSVG style={styles} size={props.size} rx={8}>
           <BaseRectangle
             stroke="none"
             style={styles}
@@ -58,6 +58,8 @@ export default function ProgressBar(props: Props): JSX.Element {
             width={ratioComplete}
             style={styles}
             size={props.size}
+            x={props.size === "lg" ? 4 : 0}
+            y={props.size === "lg" ? 4 : 0}
           />
         </WrappingSVG>
       </TheProgressBar>
@@ -77,22 +79,18 @@ interface ProgressBarSCProps {
 const TheProgressBar = styled.span<ProgressBarSCProps>`
   display: block;
   position: relative;
-  /* selected the svg & both rect elements here to reduce duplication. (DRY) */
-  svg,
-  rect {
-    /* display: block; */
-    height: var(--height);
-  }
 `;
 
 const totalBarWidthWithUnit = totalBarWidth + "px";
 const WrappingSVG = styled.svg<ProgressBarSCProps>`
   width: ${totalBarWidthWithUnit};
+  height: var(--height);
   overflow: hidden;
 `;
 
 const BaseRectangle = styled.rect<ProgressBarSCProps>`
   width: ${totalBarWidthWithUnit};
+  height: var(--height);
   fill: ${COLORS.transparentGray15};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   /* Gives typescript warning - "unknown property" */
@@ -101,6 +99,9 @@ const BaseRectangle = styled.rect<ProgressBarSCProps>`
 
 const ProgressRectangle = styled.rect<ProgressBarSCProps>`
   fill: ${COLORS.primary};
-  padding: ${(props) =>
-    props.size === "lg" && "200px"}; // DEBUG: & change value back
+  height: ${(props) =>
+    props.size === "lg"
+      ? // NOTE: hardcoded 16px instead of calculating it based off of the height variable. i don't love this.
+        "16px"
+      : "var(--height)"};
 `;
