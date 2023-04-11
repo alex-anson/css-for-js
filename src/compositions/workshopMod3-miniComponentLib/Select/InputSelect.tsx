@@ -36,9 +36,7 @@ export default function InputSelect(props: Props): JSX.Element {
         name="select-element-name"
         onChange={handleChange}
       >
-        <option value="" disabled>
-          {ogOption}
-        </option>
+        <option value="">{ogOption}</option>
         {props.options.map((option) => (
           <option key={option} value={option}>
             {option}
