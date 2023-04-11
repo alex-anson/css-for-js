@@ -48,7 +48,15 @@ export default function MiniComponentLibrary(): JSX.Element {
         label="Find the thing"
         placeholder="Search..."
         icon="search"
-        accessibilityText="search for the thing"
+        accessibilityText="search for a different thing"
+      />
+      <br style={{ marginTop: "20px" }} />
+      <InputTextWithIcon
+        size="large"
+        label="Enter your email"
+        placeholder="your@email..."
+        icon="at-sign"
+        accessibilityText="email address input"
       />
     </Section>
   );
