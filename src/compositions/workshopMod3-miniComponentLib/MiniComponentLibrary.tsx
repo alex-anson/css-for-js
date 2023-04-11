@@ -40,7 +40,8 @@ export default function MiniComponentLibrary(): JSX.Element {
         label="Find the thing"
         placeholder="Search..."
         icon="search"
-        accessibilityText="search for the thing"
+        htmlForAndID="searchbox_one"
+        accessibilityText="Search for the things with this input"
       />
       <br style={{ marginTop: "20px" }} />
       <InputTextWithIcon
@@ -48,7 +49,8 @@ export default function MiniComponentLibrary(): JSX.Element {
         label="Find the thing"
         placeholder="Search..."
         icon="search"
-        accessibilityText="search for a different thing"
+        htmlForAndID="searchbox_two"
+        accessibilityText="Search all records relating to .. something cool"
       />
       <br style={{ marginTop: "20px" }} />
       <InputTextWithIcon
@@ -56,7 +58,8 @@ export default function MiniComponentLibrary(): JSX.Element {
         label="Enter your email"
         placeholder="your@email..."
         icon="at-sign"
-        accessibilityText="email address input"
+        htmlForAndID="emailinput"
+        accessibilityText="Enter your email address here"
       />
     </Section>
   );

@@ -25,6 +25,8 @@ interface Props {
    * Used as `htmlFor` on the label element (which wraps the icon), and as `id`
    * on the input element.
    */
+  htmlForAndID: string;
+  /** Used with the `VisuallyHidden` component */
   accessibilityText: string;
 }
 
@@ -41,14 +43,14 @@ export default function InputTextWithIcon(props: Props): JSX.Element {
       <Wrapper style={{ "--width": width + "px" }}>
         <IconWrapper
           style={{ "--iconSize": iconSize }}
-          htmlFor={props.accessibilityText}
+          htmlFor={props.htmlForAndID}
         >
           <Icon id={props.icon} size={iconSize} />
         </IconWrapper>
         <TextInput
           type="text"
           placeholder={props.placeholder}
-          id={props.accessibilityText}
+          id={props.htmlForAndID}
           style={{
             "--width": width + "px",
             "--fontSize": fontSize,
@@ -56,6 +58,7 @@ export default function InputTextWithIcon(props: Props): JSX.Element {
             "--underlineSize": underlineSize,
           }}
         />
+        <VisuallyHidden screenReaderText={props.accessibilityText} />
       </Wrapper>
     </CenterContents>
   );
