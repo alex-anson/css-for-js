@@ -14,22 +14,13 @@ interface Props {
   width: number;
   size: "small" | "large";
   placeholder: string;
-  /** used as `htmlFor` on the label element, and as `id` on the input element. */
-  accessibilityText: string;
 }
 
 export default function InputTextWithIcon(props: Props): JSX.Element {
-  function TheIcon() {
-    return (
-      <Icon id={props.icon} size={props.size === "small" ? "18px" : "24px"} />
-    );
-  }
-
   return (
     <CenterContents>
-      <label htmlFor={props.accessibilityText}>{props.label}</label>
       <Group>
-        <TheIcon />
+        <Icon id={props.icon} size={props.size === "small" ? "18px" : "24px"} />
         <TextInput type="text" placeholder={props.placeholder} />
       </Group>
     </CenterContents>
@@ -42,8 +33,6 @@ const CenterContents = styled.div`
   /* position: relative; */
 
   margin: 0 auto;
-  /* display: grid;
-  gap: 10px; */
 
   label {
     font-size: 1.1rem;
@@ -54,6 +43,7 @@ const CenterContents = styled.div`
 const Group = styled.div`
   display: flex;
   /* TODO: this is where i left off */
+  // use absolute positioning on the icon. push the placeholder text over.
 `;
 
 const TextInput = styled.input`
