@@ -15,7 +15,9 @@ export default function MiniComponentLibrary(): JSX.Element {
 
       <HeadingH2>progress bar</HeadingH2>
       <ProgressBar value={100} size="lg" labelText="Loading - Large" />
+      <br style={{ marginTop: "20px" }} />
       <ProgressBar value={95} size="md" labelText="Loading - Medium" />
+      <br style={{ marginTop: "20px" }} />
       <ProgressBar value={60} size="sm" labelText="Loading - Small" />
 
       <HeadingH2>select</HeadingH2>
@@ -38,7 +40,14 @@ export default function MiniComponentLibrary(): JSX.Element {
         label="Find the thing"
         placeholder="Search..."
         icon="search"
-        width={300}
+        accessibilityText="search for the thing"
+      />
+      <br style={{ marginTop: "20px" }} />
+      <InputTextWithIcon
+        size="large"
+        label="Find the thing"
+        placeholder="Search..."
+        icon="search"
         accessibilityText="search for the thing"
       />
     </Section>
