@@ -1,3 +1,8 @@
+/** Notes while watching solution video
+ * - his top level element is a `label` (whereas mine is the icon wrapper)
+ * - he only uses the label prop within the VisuallyHidden component
+ */
+
 // Libs
 import styled from "styled-components";
 import { Roboto } from "next/font/google";
@@ -9,10 +14,12 @@ import Icon, { IconTypes } from "./Icon";
 
 const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
 
-const iconSmall = 18 / 16 + "rem";
+const iconSmall = 16 / 16 + "rem";
 const iconLarge = 24 / 16 + "rem";
 const fontSmall = 14 / 16 + "rem";
 const fontLarge = 18 / 16 + "rem";
+const paddingSmall = 24 / 16 + "rem";
+const paddingLarge = 36 / 16 + "rem";
 
 interface Props {
   label: string;
@@ -35,7 +42,7 @@ export default function InputTextWithIcon(props: Props): JSX.Element {
 
   const iconSize = props.size === "small" ? iconSmall : iconLarge;
   const fontSize = props.size === "small" ? fontSmall : fontLarge;
-  const padding = props.size === "small" ? "1.7rem" : "2rem";
+  const padding = props.size === "small" ? paddingSmall : paddingLarge;
   const underlineSize = props.size === "small" ? "1px" : "2px";
 
   return (
