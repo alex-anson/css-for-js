@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { COLORS } from "./constants";
 import ProgressBar from "./ProgressBar";
 import InputSelect from "./Select";
+import InputTextWithIcon from "./InputTextWithIcon";
+import Icon from "./Icon";
 
 export default function MiniComponentLibrary(): JSX.Element {
   return (
@@ -28,6 +30,16 @@ export default function MiniComponentLibrary(): JSX.Element {
           "DK 🦍",
           "random looonnng option 🙄",
         ]}
+      />
+
+      <HeadingH2>text input with icon</HeadingH2>
+      <InputTextWithIcon
+        size="small"
+        label="Find the thing"
+        placeholder="Search..."
+        icon="search"
+        width={300}
+        accessibilityText="search for the thing"
       />
     </Section>
   );

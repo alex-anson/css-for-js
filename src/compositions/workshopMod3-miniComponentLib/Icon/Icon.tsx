@@ -8,8 +8,10 @@ const icons: Record<string, Icon> = {
   "chevron-down": ChevronDown,
 } as const;
 
+export type IconTypes = "search" | "at-sign" | "chevron-down";
+
 interface Props {
-  id: "search" | "at-sign" | "chevron-down";
+  id: IconTypes;
   /** consumer needs to provide the unit */
   size: string;
   // FIXME: get `any` out
