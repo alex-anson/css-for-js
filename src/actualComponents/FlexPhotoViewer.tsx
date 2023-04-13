@@ -15,6 +15,7 @@ import nina4 from "../../public/nina/bean4.jpg";
 import nina5 from "../../public/nina/bean5.jpg";
 import nina6 from "../../public/nina/bean6.jpg";
 
+// Component is actually reuseable if IMAGES is passed via props.
 type ImagesType = { img: StaticImageData; alt: string }[];
 const IMAGES: ImagesType = [
   { img: nina1, alt: "rottweiler sitting outside" },
@@ -127,7 +128,6 @@ const PhotoRoll = styled.div`
 interface ClickablePhotoProps {
   readonly isSelected: boolean;
 }
-// props.selectedImage && 'apply some style'
 const ClickablePhoto = styled.button<ClickablePhotoProps>`
   padding: 0;
   margin: 0;

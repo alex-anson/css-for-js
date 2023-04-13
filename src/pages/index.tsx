@@ -32,7 +32,7 @@ import SupportTicketModal from "@/components/SupportTicketModal";
 import MiniComponentLibrary from "@/compositions/workshopMod3-miniComponentLib/MiniComponentLibrary";
 import FlexboxFacebook from "@/components/FlexboxFacebook";
 import FlexWrapLayout from "@/components/FlexWrapLayout";
-import FlexPhotoViewer from "@/components/FlexPhotoViewer";
+import FlexPhotoViewer from "@/actualComponents/FlexPhotoViewer";
 // #endregion Imports
 
 const manrope = Manrope({ subsets: ["latin"] });
