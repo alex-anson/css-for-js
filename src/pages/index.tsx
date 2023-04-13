@@ -31,6 +31,7 @@ import { ButtonLevelsTable } from "@/compositions/buttonModule3/ButtonLevelsTabl
 import SupportTicketModal from "@/components/SupportTicketModal";
 import MiniComponentLibrary from "@/compositions/workshopMod3-miniComponentLib/MiniComponentLibrary";
 import FlexboxFacebook from "@/components/FlexboxFacebook";
+import FlexWrapLayout from "@/components/FlexWrapLayout";
 // #endregion Imports
 
 const manrope = Manrope({ subsets: ["latin"] });
@@ -82,6 +83,7 @@ export default function Home() {
         <HorizontalLine styles={{ marginBottom: "4rem" }} />
 
         <FlexboxFacebook />
+        <FlexWrapLayout />
       </main>
       <footer>
         <HorizontalLine />
