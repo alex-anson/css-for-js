@@ -27,29 +27,69 @@ const IMAGES: ImagesType = [
 
 export default function FlexPhotoViewer(): JSX.Element {
   const [currentImg, setCurrentImg] = useState<ImagesType[0]>(IMAGES[0]);
+
+  function goBackward(): void {
+    const currentIndex = IMAGES.findIndex(
+      (image) => image.alt === currentImg.alt
+    );
+
+    if (currentIndex === -1) {
+      setCurrentImg(IMAGES[0]);
+    } else if (currentIndex === 0) {
+      // Current image is the first in the list: display the last image
+      setCurrentImg(IMAGES[IMAGES.length - 1]);
+    } else {
+      setCurrentImg(IMAGES[currentIndex - 1]);
+    }
+  }
+
+  function goForward(): void {
+    const currentIndex = IMAGES.findIndex(
+      (image) => image.alt === currentImg.alt
+    );
+
+    if (currentIndex === -1 || currentIndex === IMAGES.length - 1) {
+      // Current image is the last in the list, or is somehow not found.
+      // Display the first image
+      setCurrentImg(IMAGES[0]);
+    } else {
+      setCurrentImg(IMAGES[currentIndex + 1]);
+    }
+  }
+
+  function goToImg(altTxt: string): void {
+    const clickedImg = IMAGES.find((image) => image.alt === altTxt);
+    if (!clickedImg) {
+      setCurrentImg(IMAGES[0]);
+      console.warn("clicked nonexistent image");
+      return;
+    }
+    setCurrentImg(clickedImg);
+  }
+
   return (
     <section>
       <h2>flex: photo viewer</h2>
       <PhotoViewer>
         <PhotoRoll>
           {IMAGES.map((obj) => (
-            <ClickablePhoto key={obj.alt}>
-              <Image src={obj.img} alt={obj.alt} />
+            <ClickablePhoto key={obj.alt} onClick={() => goToImg(obj.alt)}>
+              <Image src={obj.img} alt={obj.alt} draggable={false} />
             </ClickablePhoto>
           ))}
           <Actions>
-            <PrimaryButton size="small">
+            <PrimaryButton size="small" onClick={goBackward}>
               {"<"}
               <VisuallyHidden screenReaderText="Previous image" />
             </PrimaryButton>
-            <PrimaryButton size="small">
+            <PrimaryButton size="small" onClick={goForward}>
               {">"}
               <VisuallyHidden screenReaderText="Next image" />
             </PrimaryButton>
           </Actions>
         </PhotoRoll>
         <MainPhoto>
-          <Image src={currentImg.img} alt={currentImg.alt} />
+          <Image src={currentImg.img} alt={currentImg.alt} draggable={false} />
         </MainPhoto>
       </PhotoViewer>
     </section>
