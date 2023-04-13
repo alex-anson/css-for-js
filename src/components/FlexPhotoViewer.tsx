@@ -73,7 +73,11 @@ export default function FlexPhotoViewer(): JSX.Element {
       <PhotoViewer>
         <PhotoRoll>
           {IMAGES.map((obj) => (
-            <ClickablePhoto key={obj.alt} onClick={() => goToImg(obj.alt)}>
+            <ClickablePhoto
+              key={obj.alt}
+              onClick={() => goToImg(obj.alt)}
+              isSelected={currentImg.alt === obj.alt}
+            >
               <Image src={obj.img} alt={obj.alt} draggable={false} />
             </ClickablePhoto>
           ))}
@@ -98,7 +102,7 @@ export default function FlexPhotoViewer(): JSX.Element {
 
 const PhotoViewer = styled.div`
   display: flex;
-  gap: ${16 / 16}rem;
+  gap: 16px;
 
   margin-left: 16px;
   margin-right: 16px;
@@ -109,7 +113,7 @@ const PhotoRoll = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: ${16 / 16}rem;
+  gap: 16px;
 
   @media screen and (max-width: 800px) {
     flex-basis: 100px;
@@ -120,7 +124,11 @@ const PhotoRoll = styled.div`
   }
 `;
 
-const ClickablePhoto = styled.button`
+interface ClickablePhotoProps {
+  readonly isSelected: boolean;
+}
+// props.selectedImage && 'apply some style'
+const ClickablePhoto = styled.button<ClickablePhotoProps>`
   padding: 0;
   margin: 0;
   border: none;
@@ -128,6 +136,19 @@ const ClickablePhoto = styled.button`
   /* Get rid of "magic space" */
   line-height: 0;
   display: block;
+
+  outline: ${(props) => props.isSelected && "#dcdcdc solid 2px"};
+
+  outline-offset: 2px;
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:focus {
+    outline: #dcdcdc dotted 4px;
+  }
 
   img {
     width: 100%;
