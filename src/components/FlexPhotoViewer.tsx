@@ -65,32 +65,33 @@ const PhotoViewer = styled.div`
 `;
 
 const PhotoRoll = styled.div`
+  flex: 0 0 200px;
+
   display: flex;
   flex-direction: column;
   gap: ${16 / 16}rem;
+
+  @media screen and (max-width: 800px) {
+    flex-basis: 100px;
+  }
+
+  @media screen and (max-width: 400px) {
+    flex-basis: 70px;
+  }
 `;
 
 const ClickablePhoto = styled.button`
   padding: 0;
   margin: 0;
   border: none;
+
   /* Get rid of "magic space" */
   line-height: 0;
-
-  width: 200px;
-  height: auto;
+  display: block;
 
   img {
     width: 100%;
-    height: 100%;
-  }
-
-  @media screen and (max-width: 800px) {
-    width: 100px;
-  }
-
-  @media screen and (max-width: 400px) {
-    width: 70px;
+    height: auto;
   }
 `;
 
@@ -103,4 +104,12 @@ const MainPhoto = styled.div`
   }
 `;
 
-const Actions = styled.div``;
+const Actions = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+
+  /* make arrows align with bottom of selected image if selected image height exceeds
+  height of combined thumbnail images */
+  margin-top: auto;
+`;
