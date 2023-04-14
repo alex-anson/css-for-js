@@ -11,8 +11,12 @@ export default function TableOfContents(): JSX.Element {
         begins with the table of contents.
         <br />
         <span>
-          (click anywhere on this paragraph, then press tab on your keyboard.)
+          (to see the effect: click anywhere on this paragraph, then press tab
+          on your keyboard.)
         </span>
+        <br />* if you are on a device that&rsquo;s less than TODO: pixels wide,
+        you won&rsquo;t be able to appreciate the effect, as the layout changes
+        on small screens.
       </Note>
       <Wrapper>
         <TOCBox>
@@ -38,6 +42,15 @@ export default function TableOfContents(): JSX.Element {
             content. It would be bad for accessibility if the user needed to tab
             through all of the content to reach the table of contents.
           </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            quisquam quos ut a id facere quo aliquid, culpa autem omnis, ad
+            explicabo unde temporibus reiciendis at eaque. Sit, placeat
+            voluptates? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Autem possimus, mollitia labore fuga, vero ducimus beatae aliquam
+            dignissimos pariatur error, eius sequi tempora ipsam ad. Fugit totam
+            provident illum fuga...
+          </p>
           <LocalSecondaryBtn size="small">Read more</LocalSecondaryBtn>
           <h3 id="heading-two">Second Excerpt</h3>
           <p>
@@ -49,6 +62,12 @@ export default function TableOfContents(): JSX.Element {
             consequatur maxime deserunt eveniet odit possimus iusto vitae
             tempore?
           </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Consectetur optio ipsam in, veniam quas nam pariatur repellat odio
+            porro maiores odit dolorem ipsa velit? Distinctio dolorum obcaecati
+            earum voluptatibus quibusdam...
+          </p>
           <LocalSecondaryBtn size="small">Read more</LocalSecondaryBtn>
           <h3 id="heading-three">Third Excerpt</h3>
           <p>
@@ -57,18 +76,37 @@ export default function TableOfContents(): JSX.Element {
             accusamus. <a href="">Nulla nobis</a> natus quos facilis. Nobis
             deserunt, minima porro aut quis qui.
           </p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, sint
+            esse dignissimos expedita perspiciatis, ea sequi quaerat
+            voluptatibus nihil, sed veritatis asperiores nostrum necessitatibus
+            alias eaque? Alias iusto saepe officia. Lorem ipsum dolor, sit amet
+            consectetur adipisicing elit. Doloribus quis eaque quasi nemo
+            reprehenderit illo adipisci omnis sequi. Rem deleniti quo temporibus
+            reiciendis amet, laborum modi eos nemo voluptatum similique...
+          </p>
           <LocalSecondaryBtn size="small">Read more</LocalSecondaryBtn>
           <form>
             <h3>Join the newsletter!</h3>
-            <InputTextWithIcon
-              size="small"
-              icon="at-sign"
-              accessibilityText="Enter your email here"
-              label="Email"
-              htmlForAndID="tableOfContentsExample"
-              placeholder="your-email@example.com"
-            />
-            <GhostButton size="small">Subscribe</GhostButton>
+            <GroupInputAndButton>
+              <InputTextWithIcon
+                maxWidth={200}
+                size="small"
+                icon="at-sign"
+                accessibilityText="Enter your email here"
+                label="Email"
+                htmlForAndID="tableOfContentsExample"
+                placeholder="your-email@example.com"
+              />
+              <LocalGhostButton
+                size="small"
+                onClick={(ev) => {
+                  ev.preventDefault();
+                }}
+              >
+                Subscribe
+              </LocalGhostButton>
+            </GroupInputAndButton>
           </form>
         </Contents>
       </Wrapper>
@@ -138,20 +176,38 @@ const Contents = styled.div`
   & form {
     padding: 32px;
     border: 1px dotted;
-  }
-  & input {
-    max-width: 200px;
+    width: fit-content;
   }
   & p:first-of-type {
-    /* font-size: ${18 / 16}rem; */
     font-weight: 500;
     display: inline;
     background-color: var(--shadow-primaryLightest);
-    /* background-color: hsl(333deg 40% 60% / 0.3); */
+  }
+  /* because the first paragraph is inline, it won't register the margin. need to 
+  do this little extra thing. */
+  & p:nth-of-type(2) {
+    margin-top: 12px;
+  }
+  & p:not(:last-child) {
+    margin-bottom: 12px;
   }
 `;
 
 const LocalSecondaryBtn = styled(SecondaryButton)`
   margin-bottom: 64px;
   margin-top: 16px;
+`;
+
+const GroupInputAndButton = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  /* so the input's icon goes where it should */
+  position: relative;
+`;
+
+const LocalGhostButton = styled(GhostButton)`
+  /* optical alignment */
+  margin-top: 2px;
 `;

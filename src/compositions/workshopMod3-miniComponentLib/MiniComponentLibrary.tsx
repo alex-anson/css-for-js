@@ -35,32 +35,38 @@ export default function MiniComponentLibrary(): JSX.Element {
       />
 
       <HeadingH2>text input with icon</HeadingH2>
-      <InputTextWithIcon
-        size="small"
-        label="Find the thing"
-        placeholder="Search..."
-        icon="search"
-        htmlForAndID="searchbox_one"
-        accessibilityText="Search for the things with this input"
-      />
+      <CenterContents>
+        <InputTextWithIcon
+          size="small"
+          label="Find the thing"
+          placeholder="Search..."
+          icon="search"
+          htmlForAndID="searchbox_one"
+          accessibilityText="Search for the things with this input"
+        />
+      </CenterContents>
       <br style={{ marginTop: "20px" }} />
-      <InputTextWithIcon
-        size="large"
-        label="Find the thing"
-        placeholder="Search..."
-        icon="search"
-        htmlForAndID="searchbox_two"
-        accessibilityText="Search all records relating to .. something cool"
-      />
+      <CenterContents>
+        <InputTextWithIcon
+          size="large"
+          label="Find the thing"
+          placeholder="Search..."
+          icon="search"
+          htmlForAndID="searchbox_two"
+          accessibilityText="Search all records relating to .. something cool"
+        />
+      </CenterContents>
       <br style={{ marginTop: "20px" }} />
-      <InputTextWithIcon
-        size="large"
-        label="Enter your email"
-        placeholder="your@email..."
-        icon="at-sign"
-        htmlForAndID="emailinput"
-        accessibilityText="Enter your email address here"
-      />
+      <CenterContents>
+        <InputTextWithIcon
+          size="large"
+          label="Enter your email"
+          placeholder="your@email..."
+          icon="at-sign"
+          htmlForAndID="emailinput"
+          accessibilityText="Enter your email address here"
+        />
+      </CenterContents>
     </Section>
   );
 }
@@ -78,4 +84,12 @@ const HeadingH1 = styled.h1`
 const HeadingH2 = styled.h2`
   color: ${COLORS.primary};
   margin-top: 2rem;
+`;
+
+const CenterContents = styled.div`
+  width: fit-content;
+  max-width: 90%;
+  margin: 0 auto;
+
+  position: relative;
 `;

@@ -46,38 +46,28 @@ export default function InputTextWithIcon(props: Props): JSX.Element {
   const underlineSize = props.size === "small" ? "1px" : "2px";
 
   return (
-    <CenterContents>
-      <Wrapper style={{ "--maxWidth": maxWidth + "px" }}>
-        <IconWrapper
-          style={{ "--iconSize": iconSize }}
-          htmlFor={props.htmlForAndID}
-        >
-          <Icon id={props.icon} size={iconSize} />
-        </IconWrapper>
-        <TextInput
-          type="text"
-          placeholder={props.placeholder}
-          id={props.htmlForAndID}
-          style={{
-            "--maxWidth": maxWidth + "px",
-            "--fontSize": fontSize,
-            "--padding": padding,
-            "--underlineSize": underlineSize,
-          }}
-        />
-        <VisuallyHidden screenReaderText={props.accessibilityText} />
-      </Wrapper>
-    </CenterContents>
+    <Wrapper style={{ "--maxWidth": maxWidth + "px" }}>
+      <IconWrapper
+        style={{ "--iconSize": iconSize }}
+        htmlFor={props.htmlForAndID}
+      >
+        <Icon id={props.icon} size={iconSize} />
+      </IconWrapper>
+      <TextInput
+        type="text"
+        placeholder={props.placeholder}
+        id={props.htmlForAndID}
+        style={{
+          "--maxWidth": maxWidth + "px",
+          "--fontSize": fontSize,
+          "--padding": padding,
+          "--underlineSize": underlineSize,
+        }}
+      />
+      <VisuallyHidden screenReaderText={props.accessibilityText} />
+    </Wrapper>
   );
 }
-
-const CenterContents = styled.div`
-  width: fit-content;
-  max-width: 90%;
-  margin: 0 auto;
-
-  position: relative;
-`;
 
 interface SCProps {
   readonly style: Record<string, string>;
@@ -113,6 +103,10 @@ const TextInput = styled.input<SCProps>`
   &::placeholder {
     color: ${COLORS.gray500};
     font-weight: 400;
+  }
+
+  &:focus {
+    outline: var(--color-primary) solid 2px;
   }
 `;
 
