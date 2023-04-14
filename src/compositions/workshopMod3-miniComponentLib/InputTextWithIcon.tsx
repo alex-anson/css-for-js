@@ -25,7 +25,7 @@ interface Props {
   label: string;
   icon: IconTypes;
   /** Provide value in pixels. Defaults to 250 if not provided. */
-  width?: number;
+  maxWidth?: number;
   size: "small" | "large";
   placeholder: string;
   /**
@@ -38,7 +38,7 @@ interface Props {
 }
 
 export default function InputTextWithIcon(props: Props): JSX.Element {
-  const width = props.width ?? 250;
+  const maxWidth = props.maxWidth ?? 250;
 
   const iconSize = props.size === "small" ? iconSmall : iconLarge;
   const fontSize = props.size === "small" ? fontSmall : fontLarge;
@@ -47,7 +47,7 @@ export default function InputTextWithIcon(props: Props): JSX.Element {
 
   return (
     <CenterContents>
-      <Wrapper style={{ "--width": width + "px" }}>
+      <Wrapper style={{ "--maxWidth": maxWidth + "px" }}>
         <IconWrapper
           style={{ "--iconSize": iconSize }}
           htmlFor={props.htmlForAndID}
@@ -59,7 +59,7 @@ export default function InputTextWithIcon(props: Props): JSX.Element {
           placeholder={props.placeholder}
           id={props.htmlForAndID}
           style={{
-            "--width": width + "px",
+            "--maxWidth": maxWidth + "px",
             "--fontSize": fontSize,
             "--padding": padding,
             "--underlineSize": underlineSize,
@@ -103,7 +103,7 @@ const TextInput = styled.input<SCProps>`
   background-color: transparent;
   outline-offset: 3px;
   padding-left: var(--padding);
-  width: var(--width);
+  width: var(--maxWidth);
   color: ${COLORS.gray700};
   font-weight: 700;
   font-size: var(--fontSize);
@@ -117,7 +117,7 @@ const TextInput = styled.input<SCProps>`
 `;
 
 const Wrapper = styled.div<SCProps>`
-  width: var(--width);
+  max-width: var(--maxWidth);
   font-family: ${roboto.style.fontFamily}, sans-serif;
 
   &:hover > ${IconWrapper}, &:hover > ${TextInput} {

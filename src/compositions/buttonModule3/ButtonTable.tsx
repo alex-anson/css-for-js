@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Roboto } from "next/font/google";
 
 // Local
-import Button from "@/compositions/buttonModule3/Button";
+import Button from "@/compositions/buttonModule3";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 

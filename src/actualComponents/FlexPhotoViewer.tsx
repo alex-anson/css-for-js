@@ -5,7 +5,7 @@ import { useState } from "react";
 
 // Local
 import { VisuallyHidden } from "@/actualComponents/VisuallyHidden";
-import { PrimaryButton } from "@/compositions/buttonModule3/Button";
+import { PrimaryButton } from "@/compositions/buttonModule3";
 
 // Media
 import nina1 from "../../public/nina/bean1.jpeg";

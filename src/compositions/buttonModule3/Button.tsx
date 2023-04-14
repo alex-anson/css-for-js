@@ -93,7 +93,7 @@ export const PrimaryButton = styled(BaseButton)<MyBtnSCProps>`
   }
 `;
 
-const SecondaryButton = styled(BaseButton)<MyBtnSCProps>`
+export const SecondaryButton = styled(BaseButton)<MyBtnSCProps>`
   background-color: ${COLORS.white};
   color: ${COLORS.primary};
   border: 2px solid ${COLORS.primary};
@@ -103,7 +103,7 @@ const SecondaryButton = styled(BaseButton)<MyBtnSCProps>`
   }
 `;
 
-const GhostButton = styled(BaseButton)`
+export const GhostButton = styled(BaseButton)`
   color: ${COLORS.gray};
   background-color: transparent;
 

@@ -26,13 +26,14 @@ import { VisuallyHiddenExample } from "@/components/VisuallyHiddenExample";
 import { SemanticHTML } from "@/components/SemanicHTML";
 import { StyledComponentsCodeExample } from "@/components/StyledComponentsCodeExample";
 import { BreadcrumbType, Breadcrumbs } from "@/actualComponents/Breadcrumbs";
-import { ButtonTable } from "@/compositions/buttonModule3/ButtonTable";
-import { ButtonLevelsTable } from "@/compositions/buttonModule3/ButtonLevelsTable";
+import { ButtonTable } from "@/compositions/buttonModule3";
+import { ButtonLevelsTable } from "@/compositions/buttonModule3";
 import SupportTicketModal from "@/components/SupportTicketModal";
 import MiniComponentLibrary from "@/compositions/workshopMod3-miniComponentLib/MiniComponentLibrary";
 import FlexboxFacebook from "@/components/FlexboxFacebook";
 import FlexWrapLayout from "@/components/FlexWrapLayout";
 import FlexPhotoViewer from "@/actualComponents/FlexPhotoViewer";
+import TableOfContents from "@/components/TableOfContents";
 // #endregion Imports
 
 const manrope = Manrope({ subsets: ["latin"] });
@@ -86,6 +87,7 @@ export default function Home() {
         <FlexboxFacebook />
         <FlexWrapLayout />
         <FlexPhotoViewer />
+        <TableOfContents />
       </main>
       <footer>
         <HorizontalLine />

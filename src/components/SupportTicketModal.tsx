@@ -3,7 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 // Local
-import Button from "@/compositions/buttonModule3/Button";
+import Button from "@/compositions/buttonModule3";
 import BaseModal from "@/actualComponents/BaseModal";
 
 export default function SupportTicketModal(): JSX.Element {
