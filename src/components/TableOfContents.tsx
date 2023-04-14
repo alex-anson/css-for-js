@@ -14,7 +14,7 @@ export default function TableOfContents(): JSX.Element {
           (to see the effect: click anywhere on this paragraph, then press tab
           on your keyboard.)
         </span>
-        <br />* if you are on a device that&rsquo;s less than TODO: pixels wide,
+        <br />* if you are on a device that&rsquo;s less than 640 pixels wide,
         you won&rsquo;t be able to appreciate the effect, as the layout changes
         on small screens.
       </Note>
@@ -46,18 +46,18 @@ export default function TableOfContents(): JSX.Element {
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
             quisquam quos ut a id facere quo aliquid, culpa autem omnis, ad
             explicabo unde temporibus reiciendis at eaque. Sit, placeat
-            voluptates? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Autem possimus, mollitia labore fuga, vero ducimus beatae aliquam
-            dignissimos pariatur error, eius sequi tempora ipsam ad. Fugit totam
-            provident illum fuga...
+            voluptates? Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
+            <a href="">Autem</a> possimus, mollitia labore fuga, vero ducimus
+            beatae aliquam dignissimos pariatur error, eius sequi tempora ipsam
+            ad. Fugit totam provident illum fuga...
           </p>
           <LocalSecondaryBtn size="small">Read more</LocalSecondaryBtn>
           <h3 id="heading-two">Second Excerpt</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam
             vel ad harum debitis possimus fuga ipsam, eligendi non odit aut eos
-            tenetur quaerat quod! <a href="">Not really a link</a>. Lorem ipsum
-            dolor, sit amet consectetur adipisicing elit. Eligendi illum quidem
+            tenetur quaerat quod! Lorem ipsum dolor, sit amet{" "}
+            <a href="">consectetur adipisicing elit</a>. Eligendi illum quidem
             culpa voluptatum voluptatem fuga sunt ipsum adipisci illo ut, quod
             consequatur maxime deserunt eveniet odit possimus iusto vitae
             tempore?
@@ -80,10 +80,11 @@ export default function TableOfContents(): JSX.Element {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, sint
             esse dignissimos expedita perspiciatis, ea sequi quaerat
             voluptatibus nihil, sed veritatis asperiores nostrum necessitatibus
-            alias eaque? Alias iusto saepe officia. Lorem ipsum dolor, sit amet
-            consectetur adipisicing elit. Doloribus quis eaque quasi nemo
-            reprehenderit illo adipisci omnis sequi. Rem deleniti quo temporibus
-            reiciendis amet, laborum modi eos nemo voluptatum similique...
+            alias eaque? Alias iusto saepe officia. Lorem ipsum dolor,{" "}
+            <a href="">sit amet</a> consectetur adipisicing elit. Doloribus quis
+            eaque quasi nemo reprehenderit illo adipisci omnis sequi. Rem
+            deleniti quo temporibus reiciendis amet, laborum modi eos nemo
+            voluptatum similique...
           </p>
           <LocalSecondaryBtn size="small">Read more</LocalSecondaryBtn>
           <form>
@@ -136,6 +137,10 @@ const Wrapper = styled.div`
 
   display: flex;
   flex-direction: row-reverse;
+
+  @media only screen and (max-width: 640px) {
+    flex-direction: column;
+  }
 `;
 
 const TOCBox = styled.aside`
@@ -156,6 +161,16 @@ const TOCBox = styled.aside`
     color: black;
     text-decoration: none;
     border-bottom: 1px solid;
+  }
+
+  @media only screen and (max-width: 640px) {
+    margin-left: initial;
+    width: fit-content;
+    align-self: flex-end;
+    margin-top: -36px;
+  }
+  @media only screen and (max-width: 400px) {
+    margin-bottom: 10px;
   }
 `;
 
