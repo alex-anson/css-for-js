@@ -34,6 +34,7 @@ import FlexboxFacebook from "@/components/FlexboxFacebook";
 import FlexWrapLayout from "@/components/FlexWrapLayout";
 import FlexPhotoViewer from "@/actualComponents/FlexPhotoViewer";
 import TableOfContents from "@/components/TableOfContents";
+import CombiningLayoutModes from "@/components/CombiningLayoutModes";
 // #endregion Imports
 
 const manrope = Manrope({ subsets: ["latin"] });
@@ -88,6 +89,7 @@ export default function Home() {
         <FlexWrapLayout />
         <FlexPhotoViewer />
         <TableOfContents />
+        <CombiningLayoutModes />
       </main>
       <footer>
         <HorizontalLine />
