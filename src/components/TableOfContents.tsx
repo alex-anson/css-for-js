@@ -10,13 +10,14 @@ export default function TableOfContents(): JSX.Element {
         this example component features a properly-tabbable “page” &mdash; focus
         begins with the table of contents.
         <br />
+        &#10033; if you are on a device that&rsquo;s less than 640 pixels wide,
+        you won&rsquo;t be able to appreciate the effect, as the layout changes
+        on small screens.
+        <br />
         <span>
           (to see the effect: click anywhere on this paragraph, then press tab
           on your keyboard.)
         </span>
-        <br />* if you are on a device that&rsquo;s less than 640 pixels wide,
-        you won&rsquo;t be able to appreciate the effect, as the layout changes
-        on small screens.
       </Note>
       <Wrapper>
         <TOCBox>
@@ -90,15 +91,17 @@ export default function TableOfContents(): JSX.Element {
           <form>
             <h3>Join the newsletter!</h3>
             <GroupInputAndButton>
-              <InputTextWithIcon
-                maxWidth={200}
-                size="small"
-                icon="at-sign"
-                accessibilityText="Enter your email here"
-                label="Email"
-                htmlForAndID="tableOfContentsExample"
-                placeholder="your-email@example.com"
-              />
+              <Relative>
+                <InputTextWithIcon
+                  maxWidth={200}
+                  size="small"
+                  icon="at-sign"
+                  accessibilityText="Enter your email here"
+                  label="Email"
+                  htmlForAndID="tableOfContentsExample"
+                  placeholder="your-email@example.com"
+                />
+              </Relative>
               <LocalGhostButton
                 size="small"
                 onClick={(ev) => {
@@ -114,7 +117,6 @@ export default function TableOfContents(): JSX.Element {
     </section>
   );
 }
-// TODO: style @ lower screen widths
 
 const Note = styled.p`
   color: var(--color-primaryLightest);
@@ -137,6 +139,17 @@ const Wrapper = styled.div`
 
   display: flex;
   flex-direction: row-reverse;
+
+  & a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: var(--shadow-primaryLightest);
+    }
+  }
 
   @media only screen and (max-width: 640px) {
     flex-direction: column;
@@ -191,7 +204,7 @@ const Contents = styled.div`
   & form {
     padding: 32px;
     border: 1px dotted;
-    width: fit-content;
+    max-width: fit-content;
   }
   & p:first-of-type {
     font-weight: 500;
@@ -218,6 +231,13 @@ const GroupInputAndButton = styled.div`
   align-items: center;
   gap: 12px;
 
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+    margin-top: 32px;
+  }
+`;
+
+const Relative = styled.div`
   /* so the input's icon goes where it should */
   position: relative;
 `;
