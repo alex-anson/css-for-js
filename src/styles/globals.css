@@ -32,11 +32,12 @@
 }
 
 /* allow for percentage based heights later down the line */
-html,
-body {
-  /* height: 100%; */
-  overflow-x: hidden;
-}
+/* html,
+body { */
+/* height: 100%; */
+/* NOTE: this breaks position: sticky; on the "home" link */
+/* overflow-x: hidden; */
+/* } */
 
 body {
   line-height: 1.5; /* accessiblity */
