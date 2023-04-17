@@ -1,5 +1,34 @@
 import styled from "styled-components";
 
+const letters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+
 export default function CombiningLayoutModes(): JSX.Element {
   return (
     <section>
@@ -22,40 +51,15 @@ export default function CombiningLayoutModes(): JSX.Element {
         <LettersColumn>
           <p>Here is a list of all the letters in the English language:</p>
           <ol>
-            <li>Item A</li>
-            <li>Item B</li>
-            <li>Item C</li>
-            <li>Item D</li>
-            <li>Item E</li>
-            <li>Item F</li>
-            <li>Item G</li>
-            <li>Item H</li>
-            <li>Item I</li>
-            <li>Item J</li>
-            <li>Item K</li>
-            <li>Item L</li>
-            <li>Item M</li>
-            <li>Item N</li>
-            <li>Item O</li>
-            <li>Item P</li>
-            <li>Item Q</li>
-            <li>Item R</li>
-            <li>Item S</li>
-            <li>Item T</li>
-            <li>Item U</li>
-            <li>Item V</li>
-            <li>Item W</li>
-            <li>Item X</li>
-            <li>Item Y</li>
-            <li>Item Z</li>
+            {letters.map((letter) => (
+              <li key={letter}>Item {letter}</li>
+            ))}
           </ol>
         </LettersColumn>
       </Wrapper>
     </section>
   );
 }
-
-// const CenterContent = styled.div``;
 
 const Wrapper = styled.div`
   margin-left: 16px;
