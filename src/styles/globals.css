@@ -89,15 +89,15 @@ html {
 /*
 When html is given height: 100%, it takes up the height of the viewport. That serves as our base. The body tag's 100% is based on that base size.
  */
-/* html,
+html,
 body,
 #__next {
   height: 100%;
-} */
+}
 
 main {
-  /* main & footer are siblings. so this doesn't have *quite* the desired effect */
-  min-height: 100%;
+  /* main, footer, & header are siblings. so setting this to 100% wouldn't work. this hacky workaround is better than nothing... (header + footer heights, including margins = 345) */
+  min-height: calc(100% - 345px);
 }
 
 header {

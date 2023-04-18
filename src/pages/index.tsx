@@ -18,12 +18,24 @@ export default function Home() {
 }
 
 const Grid = styled.div`
+  /* min-height: 100%; */
+  /* height: 100%; */
+  padding-top: 60px;
+
   display: grid;
-  justify-content: center;
   justify-items: center;
   gap: ${32 / 16}rem;
 
   @media only screen and (min-width: 420px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: ${64 / 16}rem;
+  }
+
+  @media only screen and (min-width: 767px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @media only screen and (min-width: 1200px) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 `;
