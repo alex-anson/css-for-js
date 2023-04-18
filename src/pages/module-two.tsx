@@ -1,3 +1,5 @@
+// Local
+import ModuleHeading from "@/actualComponents/ModuleHeading";
 import { BubbleBorder } from "@/components/BubbleBorder";
 import { CardVersion2 } from "@/components/CardVersion2";
 import { CardVersion3 } from "@/components/CardVersion3";
@@ -16,7 +18,10 @@ import { blockOne } from "@/utils/lorem";
 export default function Page(): JSX.Element {
   return (
     <main>
-      {/* TODO: add h1 and back button */}
+      <ModuleHeading
+        heading="rendering logic ii"
+        description="positioned layout, managing overflow"
+      />
 
       <CenterAbsolutePositioning />
       <BubbleBorder>{{ content: blockOne }}</BubbleBorder>

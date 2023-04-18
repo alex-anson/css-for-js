@@ -63,6 +63,7 @@ const SCLink = styled(Link)`
   left: 12px;
 
   text-decoration: none;
+  z-index: 10;
 `;
 
 const HomeDiv = styled.div`

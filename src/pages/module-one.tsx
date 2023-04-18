@@ -1,3 +1,5 @@
+// Local
+import ModuleHeading from "@/actualComponents/ModuleHeading";
 import { Petals } from "@/atoms/Petals";
 import { CardVersion1 } from "@/components/CardVersion1";
 import { MaxWidthWrapperSection } from "@/components/MaxWidthWrapperSection";
@@ -5,7 +7,7 @@ import { MaxWidthWrapperSection } from "@/components/MaxWidthWrapperSection";
 export default function Page(): JSX.Element {
   return (
     <main>
-      {/* TODO: add h1 and back button */}
+      <ModuleHeading heading="rendering logic i" description="flow layout" />
 
       <MaxWidthWrapperSection />
       <Petals petalSize={80} />

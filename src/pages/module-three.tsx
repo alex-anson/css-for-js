@@ -1,4 +1,6 @@
+// Local
 import { BreadcrumbType, Breadcrumbs } from "@/actualComponents/Breadcrumbs";
+import ModuleHeading from "@/actualComponents/ModuleHeading";
 import { HorizontalLine } from "@/atoms/HorizontalLine";
 import { StyledComponentsCodeExample } from "@/components/StyledComponentsCodeExample";
 import SupportTicketModal from "@/components/SupportTicketModal";
@@ -8,7 +10,10 @@ import MiniComponentLibrary from "@/compositions/workshopMod3-miniComponentLib/M
 export default function Page(): JSX.Element {
   return (
     <main>
-      {/* TODO: add h1 and back button */}
+      <ModuleHeading
+        heading="modern component architecture"
+        description="styled-components"
+      />
 
       <StyledComponentsCodeExample />
       <Breadcrumbs
