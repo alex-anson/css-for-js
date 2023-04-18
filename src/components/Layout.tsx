@@ -7,12 +7,17 @@ import styled from "styled-components";
 // Local
 import styles from "@/styles/Home.module.css";
 import { HorizontalLine } from "@/atoms/HorizontalLine";
+import { useRouter } from "next/router";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
 export default function Layout(props: {
   children: React.ReactNode;
 }): JSX.Element {
+  const router = useRouter();
+  const { pathname } = router;
+  const displayHomeBtn = pathname !== "/";
+
   return (
     <>
       <Head>
@@ -28,13 +33,13 @@ export default function Layout(props: {
         <HorizontalLine />
       </header>
       <XMain className={`${manrope.className}`}>
-        {/* TODO: if we're on the home route already, don't display */}
-        <SCLink href="/">
-          <HomeDiv>
-            <HomeP>✨ home</HomeP>
-          </HomeDiv>
-        </SCLink>
-
+        {displayHomeBtn && (
+          <SCLink href="/">
+            <HomeDiv>
+              <HomeP>✨ home</HomeP>
+            </HomeDiv>
+          </SCLink>
+        )}
         {props.children}
       </XMain>
       <footer className={manrope.className}>
