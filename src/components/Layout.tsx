@@ -18,6 +18,22 @@ export default function Layout(props: {
   const { pathname } = router;
   const displayHomeBtn = pathname !== "/";
 
+  // special flexbox route
+  if (pathname === "/holy-grail-layout") {
+    return (
+      <>
+        <Head>
+          <title>CSS Snippets/Playground</title>
+          <meta name="description" content="alex's CSS playground" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
+        {props.children}
+      </>
+    );
+  }
+
   return (
     <>
       <Head>
