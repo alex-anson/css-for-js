@@ -92,9 +92,6 @@ const FooterBox = styled.footer`
 `;
 
 const BackButton = styled(Link)`
-  /* position: absolute;
-  top: 12px;
-  right: 12px; */
   text-decoration: none;
 `;
 

@@ -18,7 +18,7 @@ export default function Layout(props: {
   const { pathname } = router;
   const displayHomeBtn = pathname !== "/";
 
-  // special flexbox route
+  // #region special flexbox routes
   if (pathname === "/holy-grail-layout") {
     return (
       <>
@@ -33,6 +33,34 @@ export default function Layout(props: {
       </>
     );
   }
+
+  if (pathname === "/sticky-sidebar") {
+    return (
+      <>
+        <Head>
+          <title>CSS Snippets/Playground</title>
+          <meta name="description" content="alex's CSS playground" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <header className={manrope.className}>
+          <div className={styles.headerDiv}>
+            <h1 className={styles.headerDiv_h1}>&nbsp;Fun with CSS 🔮</h1>
+          </div>
+          <HorizontalLine />
+        </header>
+        {props.children}
+        <footer className={manrope.className}>
+          <HorizontalLine />
+          <div>
+            <span>🔥</span>
+            <p>alex&#39;s playground</p>
+          </div>
+        </footer>
+      </>
+    );
+  }
+  // #endregion special flexbox routes
 
   return (
     <>

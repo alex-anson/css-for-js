@@ -21,23 +21,29 @@ export default function Page(): JSX.Element {
       <TableOfContents />
       <CombiningLayoutModes />
 
-      <HolyGrailLink href="/holy-grail-layout" id="hgl">
-        <HGDiv>
-          <HGP>holy grail layout</HGP>
-        </HGDiv>
-      </HolyGrailLink>
+      <LocalButton href="/holy-grail-layout" id="hgl">
+        <LBDiv>
+          <LBText>holy grail layout</LBText>
+        </LBDiv>
+      </LocalButton>
+
+      <LocalButton href="/sticky-sidebar" id="sticky">
+        <LBDiv>
+          <LBText>sticky sidebar</LBText>
+        </LBDiv>
+      </LocalButton>
     </main>
   );
 }
 
-const HolyGrailLink = styled(Link)`
+const LocalButton = styled(Link)`
   display: block;
   max-width: fit-content;
   text-decoration: none;
   margin: 10rem auto 12rem;
 `;
 
-const HGDiv = styled.div`
+const LBDiv = styled.div`
   border: 1px solid hsl(0, 0%, 25%);
   padding: 12px 16px;
   border-radius: ${12 / 16}rem;
@@ -52,7 +58,7 @@ const HGDiv = styled.div`
   }
 `;
 
-const HGP = styled.p`
+const LBText = styled.p`
   font-size: ${20 / 16}rem;
   letter-spacing: 0.8px;
 `;
