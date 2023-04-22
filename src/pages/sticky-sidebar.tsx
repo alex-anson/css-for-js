@@ -25,7 +25,10 @@ export default function Page(): JSX.Element {
         </ul>
       </Nav>
       <Main>
-        <p>This container contains random stuff to increase its height.</p>
+        <p>
+          This container contains random pictures of nina to increase its
+          height.
+        </p>
         <LocalImage
           alt="rottweiler sitting outside"
           src={nina1}
@@ -36,11 +39,13 @@ export default function Page(): JSX.Element {
         <LocalImage
           alt="baby rott with curious eyes"
           src={nina2}
-          // intrinsic dimensions = 600x800
           width={300}
           height={400}
         />
-        <p>This container contains random stuff to increase its height.</p>
+        <p>
+          This container contains random pictures of nina to increase its
+          height.
+        </p>
         <LocalImage
           alt="baby rott with happy eyes"
           src={nina3}
@@ -64,12 +69,20 @@ const Wrapper = styled.div`
   font-weight: 600;
 
   display: flex;
+  /* magic sauce ✨ */
+  align-items: start;
 `;
 
 const Nav = styled.nav`
   padding: 16px;
+  padding-left: 0;
+  padding-top: 8px;
+  margin-left: 16px;
+  margin-top: 16px;
   position: sticky;
-  top: 0;
+  top: 16px;
+  background-color: #181818;
+  box-shadow: 0px 1px 4px #000;
 `;
 
 const Main = styled.main`
@@ -79,12 +92,14 @@ const Main = styled.main`
 
 const LocalImage = styled(Image)`
   display: block;
-  width: 300px;
+  height: auto;
+  width: 100%;
+  max-width: 400px;
   margin: 16px 0 64px;
 `;
 
 const BackButton = styled(Link)`
-  position: absolute; // maybe change to fixed?
+  position: fixed;
   top: 112px;
   right: 12px;
   text-decoration: none;
