@@ -69,8 +69,6 @@ const Wrapper = styled.div`
   font-weight: 600;
 
   display: flex;
-  /* magic sauce ✨ */
-  align-items: start;
 `;
 
 const Nav = styled.nav`
@@ -83,6 +81,9 @@ const Nav = styled.nav`
   top: 16px;
   background-color: #181818;
   box-shadow: 0px 1px 4px #000;
+
+  /* magic sauce ✨ */
+  align-self: start;
 `;
 
 const Main = styled.main`
