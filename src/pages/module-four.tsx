@@ -9,6 +9,7 @@ import CombiningLayoutModes from "@/components/CombiningLayoutModes";
 import FlexWrapLayout from "@/components/FlexWrapLayout";
 import FlexboxFacebook from "@/components/FlexboxFacebook";
 import TableOfContents from "@/components/TableOfContents";
+import OverstuffedAndCentered from "@/components/OverstuffedAndCentered";
 
 export default function Page(): JSX.Element {
   return (
@@ -32,6 +33,8 @@ export default function Page(): JSX.Element {
           <LBText>sticky sidebar</LBText>
         </LBDiv>
       </LocalButton>
+
+      <OverstuffedAndCentered />
     </main>
   );
 }
