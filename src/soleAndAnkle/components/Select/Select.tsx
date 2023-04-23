@@ -1,36 +1,40 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+// Libs
+import React from "react";
+import styled from "styled-components";
 
-import { COLORS, WEIGHTS } from '../../constants';
-import Icon from '../Icon';
+// Local
+import { COLORS, WEIGHTS } from "@/soleAndAnkle/constants";
+import Icon from "../Icon";
 
-const Select = ({ label, value, children, ...delegated }) => {
-  const childArray = React.Children.toArray(children);
-  const selectedChild = childArray.find(
-    (child) => child.props.value === value
-  );
+interface Props {
+  label: string;
+  value: string;
+  children: React.ReactNode;
+  onChange: (ev: React.ChangeEvent<HTMLSelectElement>) => void;
+}
 
-  const displayedValue = selectedChild.props.children;
+export default function Select(props: Props): JSX.Element {
+  const childArray = React.Children.toArray(props.children);
+  // const selectedChild = childArray.find((child) => child.props.value === props.value);
+
+  // const displayedValue = selectedChild.props.children;
+  const displayedValue = "TODO:";
 
   return (
     <Wrapper>
-      <VisibleLabel>{label}</VisibleLabel>
+      <VisibleLabel>{props.label}</VisibleLabel>
 
       <SelectWrapper>
-        <NativeSelect {...delegated}>{children}</NativeSelect>
+        <NativeSelect {...props.onChange}>{props.children}</NativeSelect>
 
         <DisplayedBit>
           {displayedValue}
-          <ChevronIcon
-            id="chevron-down"
-            size={24}
-            strokeWidth={1.5}
-          />
+          <ChevronIcon id="chevron-down" size={24} color="TODO:" />
         </DisplayedBit>
       </SelectWrapper>
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.label``;
 
@@ -80,5 +84,3 @@ const ChevronIcon = styled(Icon)`
   width: 24px;
   height: 24px;
 `;
-
-export default Select;

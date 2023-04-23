@@ -1,26 +1,27 @@
-import React from 'react';
-import styled from 'styled-components';
+// Libs
+import styled from "styled-components";
 
-import { COLORS } from '../../constants';
+// Local
+import { COLORS } from "@/soleAndAnkle/constants";
 
-import SearchInput from '../SearchInput';
-import UnstyledButton from '../UnstyledButton';
-import Icon from '../Icon';
+import SearchInput from "../SearchInput";
+import UnstyledButton from "../UnstyledButton";
+import Icon from "../Icon";
 
-const SuperHeader = () => {
+export default function SuperHeader() {
   return (
     <Wrapper>
       <MarketingMessage>
         Free shipping on domestic orders over $75!
       </MarketingMessage>
-      <SearchInput />
+      <SearchInput label="TODO:" />
       <HelpLink href="/help">Help</HelpLink>
       <UnstyledButton>
-        <Icon id="shopping-bag" strokeWidth={1} />
+        <Icon id="shopping-bag" size={16} color="TODO:" />
       </UnstyledButton>
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.div`
   font-size: 0.875rem;
@@ -41,5 +42,3 @@ const HelpLink = styled.a`
     outline: none;
   }
 `;
-
-export default SuperHeader;

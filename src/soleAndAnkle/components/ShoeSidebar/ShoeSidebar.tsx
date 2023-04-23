@@ -1,9 +1,8 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import styled from "styled-components";
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS } from "../../constants";
 
-const Sidebar = () => {
+export default function Sidebar() {
   return (
     <Wrapper>
       <Link href="/lifestyle">Lifestyle</Link>
@@ -21,7 +20,7 @@ const Sidebar = () => {
       <Link href="/walking">Walking</Link>
     </Wrapper>
   );
-};
+}
 
 const Wrapper = styled.aside``;
 
@@ -36,5 +35,3 @@ const Link = styled.a`
 const ActiveLink = styled(Link)`
   color: ${COLORS.primary};
 `;
-
-export default Sidebar;

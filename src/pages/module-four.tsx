@@ -35,6 +35,12 @@ export default function Page(): JSX.Element {
       </LocalButton>
 
       <OverstuffedAndCentered />
+
+      <LocalButton href="/module-four-workshop" id="workshop">
+        <LBDiv>
+          <LBText>module four workshop</LBText>
+        </LBDiv>
+      </LocalButton>
     </main>
   );
 }

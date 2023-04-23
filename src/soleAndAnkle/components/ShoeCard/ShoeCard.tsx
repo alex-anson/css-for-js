@@ -1,19 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components";
 
-import { COLORS, WEIGHTS } from '../../constants';
-import { formatPrice, pluralize, isNewShoe } from '../../utils';
-import Spacer from '../Spacer';
+import { COLORS, WEIGHTS } from "../../constants";
+import { formatPrice, pluralize, isNewShoe } from "../../utils";
+import Spacer from "../Spacer";
+import { Shoe } from "@/soleAndAnkle/types";
 
-const ShoeCard = ({
-  slug,
-  name,
-  imageSrc,
-  price,
-  salePrice,
-  releaseDate,
-  numOfColors,
-}) => {
+export default function ShoeCard(props: Shoe): JSX.Element {
   // There are 3 variants possible, based on the props:
   //   - new-release
   //   - on-sale
@@ -25,30 +18,30 @@ const ShoeCard = ({
   // both on-sale and new-release, but in this case, `on-sale`
   // will triumph and be the variant used.
   // prettier-ignore
-  const variant = typeof salePrice === 'number'
+  const variant = typeof props.salePrice === 'number'
     ? 'on-sale'
-    : isNewShoe(releaseDate)
+    : isNewShoe(props.releaseDate)
       ? 'new-release'
       : 'default'
 
   return (
-    <Link href={`/shoe/${slug}`}>
+    <Link href={`/shoe/${props.slug}`}>
       <Wrapper>
         <ImageWrapper>
-          <Image alt="" src={imageSrc} />
+          <Image alt="" src={props.imageSrc} />
         </ImageWrapper>
-        <Spacer size={12} />
+        <Spacer size={12} axis="vertical" />
         <Row>
-          <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
+          <Name>{props.name}</Name>
+          <Price>{formatPrice(props.price)}</Price>
         </Row>
         <Row>
-          <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+          <ColorInfo>{pluralize("Color", props.numOfColors)}</ColorInfo>
         </Row>
       </Wrapper>
     </Link>
   );
-};
+}
 
 const Link = styled.a`
   text-decoration: none;
@@ -82,5 +75,3 @@ const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.primary};
 `;
-
-export default ShoeCard;

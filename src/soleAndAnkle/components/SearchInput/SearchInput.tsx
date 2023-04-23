@@ -1,19 +1,25 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+// Libs
+import styled from "styled-components";
 
-import { COLORS } from '../../constants';
-import VisuallyHidden from '../VisuallyHidden';
-import Icon from '../Icon';
+// Local
+import { COLORS } from "@/soleAndAnkle/constants";
+import { VisuallyHidden } from "@/actualComponents/VisuallyHidden";
+import Icon from "../Icon";
 
-const SearchInput = ({ label, ...delegated }) => {
+interface Props {
+  label: string;
+  delegated?: any;
+}
+
+export default function SearchInput(props: Props): JSX.Element {
   return (
     <Label>
-      <VisuallyHidden>Search</VisuallyHidden>
-      <Input {...delegated} placeholder="Search…" />
-      <SearchIcon id="search" strokeWidth={1} size={16} />
+      <VisuallyHidden screenReaderText="Search" />
+      <Input {...props.delegated} placeholder="Search…" />
+      <SearchIcon id="search" size={16} color="TODO:" />
     </Label>
   );
-};
+}
 
 const Label = styled.label`
   position: relative;
@@ -42,5 +48,3 @@ const SearchIcon = styled(Icon)`
   width: 16px;
   height: 16px;
 `;
-
-export default SearchInput;

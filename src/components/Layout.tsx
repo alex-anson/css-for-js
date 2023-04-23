@@ -60,6 +60,20 @@ export default function Layout(props: {
       </>
     );
   }
+
+  if (pathname === "/mod-four-workshop") {
+    return (
+      <>
+        <Head>
+          <title>CSS Snippets/Playground</title>
+          <meta name="description" content="alex's CSS playground" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        {props.children}
+      </>
+    );
+  }
   // #endregion special flexbox routes
 
   return (
