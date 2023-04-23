@@ -29,7 +29,6 @@ const Wrapper = styled.div`
   color: var(--color-light);
   font-weight: 600;
 
-  /* i definitely feel like using the Wrapper in this way is cheating. */
   display: flex;
   flex-direction: column;
 
@@ -37,7 +36,7 @@ const Wrapper = styled.div`
 `;
 
 const Middle = styled.div`
-  flex: 1 10000px;
+  flex: 1;
   display: flex;
   min-height: fit-content;
 `;
