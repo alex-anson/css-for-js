@@ -3,11 +3,12 @@ import { Manrope } from "next/font/google";
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 // Local
 import styles from "@/styles/Home.module.css";
 import { HorizontalLine } from "@/atoms/HorizontalLine";
-import { useRouter } from "next/router";
+import GlobalStyles from "@/soleAndAnkle/components/GlobalStyles";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -61,7 +62,7 @@ export default function Layout(props: {
     );
   }
 
-  if (pathname === "/mod-four-workshop") {
+  if (pathname === "/module-four-workshop") {
     return (
       <>
         <Head>
@@ -71,6 +72,7 @@ export default function Layout(props: {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         {props.children}
+        <GlobalStyles />
       </>
     );
   }

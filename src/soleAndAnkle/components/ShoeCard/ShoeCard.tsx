@@ -1,6 +1,8 @@
-import React from "react";
+// Libs
 import styled from "styled-components";
+import Image from "next/image";
 
+// Local
 import { COLORS, WEIGHTS } from "../../constants";
 import { formatPrice, pluralize, isNewShoe } from "../../utils";
 import Spacer from "../Spacer";
@@ -28,7 +30,7 @@ export default function ShoeCard(props: Shoe): JSX.Element {
     <Link href={`/shoe/${props.slug}`}>
       <Wrapper>
         <ImageWrapper>
-          <Image alt="" src={props.imageSrc} />
+          <Image alt="" src={props.imageSrc} height={100} width={100} />
         </ImageWrapper>
         <Spacer size={12} axis="vertical" />
         <Row>
@@ -53,8 +55,6 @@ const Wrapper = styled.article``;
 const ImageWrapper = styled.div`
   position: relative;
 `;
-
-const Image = styled.img``;
 
 const Row = styled.div`
   font-size: 1rem;
