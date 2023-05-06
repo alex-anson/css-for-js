@@ -14,11 +14,11 @@ export default function SuperHeader() {
       <MarketingMessage>
         Free shipping on domestic orders over $75!
       </MarketingMessage>
-      <SearchInput label="TODO:" />
+      <SearchInput />
       <HelpLink href="/help">Help</HelpLink>
-      <UnstyledButton>
-        <Icon id="shopping-bag" size={16} color="TODO:" />
-      </UnstyledButton>
+      <LocalButton>
+        <Icon id="shopping-bag" size={16} color="hsl(190deg, 5%, 80%)" />
+      </LocalButton>
     </Wrapper>
   );
 }
@@ -27,10 +27,17 @@ const Wrapper = styled.div`
   font-size: 0.875rem;
   color: ${COLORS.gray[300]};
   background-color: ${COLORS.gray[900]};
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: ${36 / 16}rem;
+  padding: 4px 32px;
 `;
 
 const MarketingMessage = styled.span`
   color: ${COLORS.white};
+  margin-right: auto;
 `;
 
 const HelpLink = styled.a`
@@ -41,4 +48,8 @@ const HelpLink = styled.a`
   &:not(:focus-visible) {
     outline: none;
   }
+`;
+
+const LocalButton = styled(UnstyledButton)`
+  flex-shrink: 0;
 `;

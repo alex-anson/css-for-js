@@ -57,7 +57,7 @@ table {
   -moz-osx-font-smoothing: auto;
 }
 
-#root {
+#__next {
   /*
     Create a stacking context, without a z-index.
     This ensures that all portal content (modals and tooltips) will
@@ -66,7 +66,7 @@ table {
   isolation: isolate;
 }
 
-html, body, #root {
+html, body, #__next {
   height: 100%;
   background-color: var(--color-light);
 }

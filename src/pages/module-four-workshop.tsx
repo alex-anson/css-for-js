@@ -1,10 +1,13 @@
 // Libs
 import { useState } from "react";
 import styled from "styled-components";
+import { Raleway } from "next/font/google";
 
 // Local
 import Header from "@/soleAndAnkle/components/Header";
 import ShoeIndex from "@/soleAndAnkle/components/ShoeIndex";
+
+const raleway = Raleway({ subsets: ["latin"] });
 
 export default function Page(): JSX.Element {
   const [sortID, setSortID] = useState("newest");
@@ -12,7 +15,7 @@ export default function Page(): JSX.Element {
   return (
     <>
       <Header />
-      <Main>
+      <Main className={raleway.className}>
         <ShoeIndex sortID={sortID} setSortID={setSortID} />
       </Main>
     </>

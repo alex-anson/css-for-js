@@ -7,7 +7,6 @@ import { VisuallyHidden } from "@/actualComponents/VisuallyHidden";
 import Icon from "../Icon";
 
 interface Props {
-  label: string;
   delegated?: any;
 }
 
@@ -16,7 +15,9 @@ export default function SearchInput(props: Props): JSX.Element {
     <Label>
       <VisuallyHidden screenReaderText="Search" />
       <Input {...props.delegated} placeholder="Search…" />
-      <SearchIcon id="search" size={16} color="TODO:" />
+      <WrapIcon>
+        <Icon id="search" size={16} color="hsl(190deg, 5%, 80%)" />
+      </WrapIcon>
     </Label>
   );
 }
@@ -39,7 +40,7 @@ const Input = styled.input`
   }
 `;
 
-const SearchIcon = styled(Icon)`
+const WrapIcon = styled.div`
   position: absolute;
   top: 0;
   left: 0;
