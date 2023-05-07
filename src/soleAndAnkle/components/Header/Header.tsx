@@ -12,7 +12,7 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Logo />
+        <LocalLogo />
         <Nav>
           <NavLink href="/sale">Sale</NavLink>
           <NavLink href="/new">New&nbsp;Releases</NavLink>
@@ -29,9 +29,27 @@ const Header = () => {
 const MainHeader = styled.div`
   padding: 0 32px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  background-color: ${COLORS.gray[100]};
+  /* display: flex;
+  align-items: baseline; */
+  position: relative;
 `;
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  height: ${72 / 16}rem;
+  /* optical alignment..? */
+  padding-top: 2px;
+`;
+
+const LocalLogo = styled(Logo)`
+  position: absolute;
+  /* optical alignment..?   i had it at 20px before adding padding-top to Nav */
+  bottom: 18px;
+`;
 
 const NavLink = styled.a`
   font-size: 1.125rem;
@@ -39,6 +57,7 @@ const NavLink = styled.a`
   text-decoration: none;
   color: ${COLORS.gray[900]};
   font-weight: ${WEIGHTS.medium};
+  line-height: 1;
 
   &:first-of-type {
     color: ${COLORS.secondary};

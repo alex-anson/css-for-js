@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { WEIGHTS } from "../../constants";
+import { WEIGHTS, COLORS } from "../../constants";
 
 const Logo = (props?: any): JSX.Element => {
   return (
@@ -13,7 +13,7 @@ const Logo = (props?: any): JSX.Element => {
 
 const Link = styled.a`
   text-decoration: none;
-  color: inherit;
+  color: ${COLORS.gray[900]};
 `;
 
 const Wrapper = styled.h1`
